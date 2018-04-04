@@ -28,7 +28,8 @@ export default {
     .subject{
         overflow: auto;
         .search{
-            height: 150px;
+            height: 135px;
+            background: #aaa;
         }
     }
 </style>
