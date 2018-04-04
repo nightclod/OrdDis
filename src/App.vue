@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+    import './assets/iconfont/iconfont.css'
+    export default {
+        name: 'App'
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* 全局设置 */
+ @charset "utf-8";
+*{box-sizing:border-box;}
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,img,header,footer,nav,main{ margin:0; padding:0; }
+ul,ol,li{list-style:none;}
+i,em{font-style:normal;}
+b,strong{font-weight:100;}
+a,u{ text-decoration:none;}
+a,img{display:block; border:0;}
+h1,h2,h3,h4,h5,h6{ font-weight:100; font-size:14px;}
+@media screen and (max-width:320px ) {html{font-size: 12px;}}
+@media screen and (min-width:321px) and (max-width:375px ) {html{font-size: 14px;}}
+@media screen and (min-width:376px ) {html{font-size: 16px;}} 
 </style>
