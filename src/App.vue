@@ -6,6 +6,7 @@
 
 <script>
     import './assets/iconfont/iconfont.css'
+    import './assets/iconfont/iconfont.js'
     export default {
         name: 'App'
     }
@@ -22,6 +23,7 @@ b,strong{font-weight:100;}
 a,u{ text-decoration:none;}
 a,img{display:block; border:0;}
 h1,h2,h3,h4,h5,h6{ font-weight:100; font-size:14px;}
+input,button{outline: none;}
 @media screen and (max-width:320px ) {html{font-size: 12px;}}
 @media screen and (min-width:321px) and (max-width:375px ) {html{font-size: 14px;}}
 @media screen and (min-width:376px ) {html{font-size: 16px;}} 
