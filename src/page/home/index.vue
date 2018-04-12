@@ -95,7 +95,7 @@ export default {
             }
         }
         .search_outer{
-            top: 3.5rem;
+            top: 4rem;
             right: 11%;
             position: absolute;
             height: 2.1rem;
