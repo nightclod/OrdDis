@@ -8,7 +8,6 @@
                 <button class="btn_search"><i class="iconfont icon-sousuo"></i></button>
             </div>
         </div>
-        
         <div class="menu">
             <ul>
                 <li>
@@ -61,8 +60,29 @@
                 </li>
             </ul>
         </div>
-        <div>
-
+        <div class="recommend">
+        	<div class="rec_tit">
+        		—— · &nbsp; 推荐商家 &nbsp; · ——
+        	</div>
+        	<ul class="rec_cont">
+        		<li>
+        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">美好一天早餐店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市</div>
+        			</div>
+        		</li>
+        	</ul>
         </div>
     </div>
 </template>
@@ -82,6 +102,7 @@ export default {
 <style scoped lang="scss">
     .subject{
         overflow: auto;
+        background: #ccc;
         .banner{
             position: relative;
             height: 10rem;
@@ -139,6 +160,7 @@ export default {
             }
         } 
         .menu{
+        	background: #fff;
             li{
                 width: 24%;
                 height: 5rem;
@@ -153,6 +175,54 @@ export default {
                     font-size: 1rem;
                 }
             }
+        }
+        .recommend{
+        	background: #fff;
+        	.rec_tit{
+        		height: 2rem;
+        		text-align: center;
+        		color: #aaa;
+        		line-height: 2rem;
+        	}
+        	.rec_cont{
+        		height: 30rem;
+                li{
+                   margin-bottom: 0.2rem;
+                   overflow: hidden;
+                   border-bottom: solid 1px #eee;
+                   padding: 0 0.8rem 0.8rem 0.8rem;
+                   .img{
+                       float: left;
+                       width: 20%;
+                       img{
+                           width: 5rem;
+                           height: 5rem;
+                       }
+                   }
+                   .content{
+                       float: left;
+                       width: 79%;
+                       padding: 0 0.8rem;
+                       .name{
+                           font-size: 1.5rem;
+                           font-family: '楷体';
+                           height: 1.8rem;
+                           line-height: 1.8rem;
+                       }
+                    //    .grade{
+                    //        overflow: hidden;
+                    //        .stars{
+                    //            float: left;
+                    //            letter-spacing: -0.1rem;
+                    //        }
+                    //        .money{
+                    //            float: left;
+                    //        }
+                    //    }
+                       
+                   } 
+                }
+        	}
         }
     }
 </style>
