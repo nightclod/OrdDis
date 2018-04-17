@@ -1,9 +1,15 @@
 <template>
     <div class="subject">
+        <div class="search_top" ref="top">
+            <form action="">
+                <input type="text" name="search_top" autocomplete="off" placeholder="搜索" />
+                <button class="btn_search"><i class="iconfont icon-sousuo"></i></button>
+            </form>
+        </div>
         <div class="banner">
             <img src="../../assets/img/meishi1.jpg">
             <div class="search_outer">
-                <input type="text" name="search" class="search" autocomplete="off" placeholder="搜索"/>
+                <input type="text" name="search" class="search" autocomplete="off" placeholder="搜索" />
                 <span class="but"></span>
                 <button class="btn_search"><i class="iconfont icon-sousuo"></i></button>
             </div>
@@ -199,6 +205,20 @@ export default {
         
         }
     },
+    mounted () {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    methods:{
+        handleScroll () {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            if(scrollTop >= 80 ){
+                this.$refs.top.style.opacity = '1';  
+            }else{
+                this.$refs.top.style.opacity = '0'; 
+            }
+        }
+    },
+    
     components: { footView }
 }
 </script>
@@ -208,6 +228,50 @@ export default {
     .subject{
         overflow: auto;
         background: #ccc;
+        .search_top{
+            opacity: 0;
+            z-index: 2;
+            position: fixed;
+            top:0;
+            height: 3rem;
+            width: 100%;
+            background: #03a9f4;
+            text-align: center;
+            padding-top: .6rem;
+            transition:.3s;
+            form{
+                height: 2rem;
+                margin-left: -8rem;
+                position: relative;
+                left: 50%;
+                input{
+                    font-family: 'Raleway', Arial, sans-serif;
+                    border: none;
+                    height: 2rem;
+                    width: 14rem;
+                    line-height: 2rem;
+                    font-size:1rem;
+                    color: #333;
+                    background: #fff ;
+                    display: block;
+                    float: left;
+                    padding: 0;
+                    padding-left: 1rem;
+                }
+                .btn_search{
+                    border: none;
+                    background:#fff;
+                    display: block;
+                    float: left;
+                    padding: 0 .5rem;
+                    height: 2rem;
+                    i{
+                        font-size: 1.6rem;
+                        color: #2196f3;
+                    }
+                }
+            }
+        }
         .banner{
             position: relative;
             height: 10rem;
@@ -219,51 +283,50 @@ export default {
                 max-height: 100%;
                 left:-3.8rem;
             }
-        }
-        .search_outer{
-            top: 4rem;
-            right: 11%;
-            position: absolute;
-            height: 2.1rem;
-            width: 17rem;
-            .search{
-                font-family: 'Raleway', Arial, sans-serif;
-                border: none;
-                border-bottom: solid 1px #fed508;
-                height: 2rem;
-                width: 17rem;
-                line-height: 2rem;
-                font-size:1rem;
-                color: #466674;
-                background: rgba(0, 0, 0, 0) ;
-                font-weight: 700;
-            }
-            .but{
+            .search_outer{
+                top: 4rem;
+                right: 11%;
                 position: absolute;
-                bottom: 0;
-                height: 2px;
-                display: block;
-                width: 0;
-                background: #4CAF50;
-                transition:.3s;
-            }
-            .search:focus + .but{
-                width: 100%;
-            }
-            .btn_search{
-                display: block;
-                position: absolute;
-                border: none;
-                background: rgba(0, 0, 0, 0) ;
-                bottom: 0.2rem;
-                right: 0;
-                font-size: 1rem;
-                i{
-                    font-size: 1.6rem;
-                    color: #08670c;
+                height: 2.1rem;
+                width: 16rem;
+                .search{
+                    font-family: 'Raleway', Arial, sans-serif;
+                    border: none;
+                    border-bottom: solid 1px #fed508;
+                    height: 2rem;
+                    width: 16rem;
+                    line-height: 2rem;
+                    font-size:1rem;
+                    color: #466674;
+                    background: rgba(0, 0, 0, 0) ;
+                    font-weight: 800;
+                    padding-left: 1rem;
                 }
-            }
-        } 
+                .but{
+                    position: absolute;
+                    bottom: 0;
+                    height: 2px;
+                    display: block;
+                    width: 0;
+                    background: #4CAF50;
+                    transition:.3s;
+                }
+                .search:focus + .but{width: 100%;}
+                .btn_search{
+                    display: block;
+                    position: absolute;
+                    border: none;
+                    background: rgba(0, 0, 0, 0) ;
+                    bottom: 0.2rem;
+                    right: 0;
+                    font-size: 1rem;
+                    i{
+                        font-size: 1.6rem;
+                        color: #08670c;
+                    }
+                }
+            } 
+        }
         .menu{
         	background: #fff;
             li{
@@ -276,9 +339,7 @@ export default {
                     width: 2rem; 
                     height: 2rem;
                 }
-                .menu_li{
-                    font-size: 1rem;
-                }
+                .menu_li{font-size: 1rem;}
             }
         }
         .recommend{
@@ -314,6 +375,7 @@ export default {
                            height: 1.8rem;
                            line-height: 1.8rem;
                            color: #333;
+                           font-weight: 400
                        }
                        .grade{
                            height: 1.4rem;

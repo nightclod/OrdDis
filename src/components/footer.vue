@@ -2,25 +2,25 @@
     <div class="footer">
         <ul>
             <li>
-                <router-link :to="{name:'home'}" exact-active-class="ss"> 
+                <router-link :to="{name:'home'}" exact-active-class="act"> 
                     <i class="iconfont icon-shouye"></i>
                     <div>首页</div>
                 </router-link>
             </li>
             <li>
-                <router-link :to="{name:'list'}"  exact-active-class="ss"> 
+                <router-link :to="{name:'list'}"  exact-active-class="act"> 
                     <i class="iconfont icon-chazhaobiaodanliebiao"></i>
                     <div>列表</div>
                 </router-link>
             </li>
             <li>
-                <router-link :to="{name:'shop'}"  exact-active-class="ss"> 
+                <router-link :to="{name:'shop'}"  exact-active-class="act"> 
                     <i class="iconfont icon-gouwuche"></i>
                     <div>购物车</div>
                 </router-link>
             </li>
             <li>
-                <router-link :to="{name:'mine'}"  exact-active-class="ss"> 
+                <router-link :to="{name:'mine'}"  exact-active-class="act"> 
                     <i class="iconfont icon-wode"></i>
                     <div>我的</div>
                 </router-link>
@@ -32,7 +32,9 @@
 <script>
 export default {
     data () {
+        return {
 
+        }
     }
 }
 </script>
@@ -51,21 +53,15 @@ export default {
                 width: 25%;
                 text-align: center;
                 padding-top: 0.3rem;
-                a{
-                    color: #666;
-                }
+                a{color: #666;}
                 i{
                     display: block;
                     height: 1.9rem;
                     font-size: 1.5rem
                 }
-                div{
-                    font-size: .8rem
-                }
+                div{font-size: .8rem}
             }
-            .ss{
-                color: #f80
-            }
+            .act{color: #03a9f4;}
         }
     }
 </style>
