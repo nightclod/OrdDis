@@ -1,5 +1,5 @@
 <template>
-    <div class="subject">
+    <div class="body" ref="center">
         <div class="search_top" ref="top">
             <form action="">
                 <input type="text" name="search_top" autocomplete="off" placeholder="搜索" />
@@ -67,130 +67,130 @@
             </ul>
         </div>
         <div class="recommend">
-        	<div class="rec_tit">
-        		—— · &nbsp; 推荐商家 &nbsp; · ——
-        	</div>
-        	<ul class="rec_cont">
-        		<li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+            <div class="rec_tit">
+                —— · &nbsp; 推荐商家 &nbsp; · ——
+            </div>
+            <ul class="rec_cont">
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-        	</ul>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="content">
+                        <div class="name">美好一天早餐店</div>
+                        <div class="grade">
+                            <div class="stars">
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_f"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                                <i class="iconfont icon-xing_l"></i> 
+                            </div>
+                            <div class="money">人均 ￥ 20</div>
+                        </div>
+                        <div class="site">北京市王府井大街</div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <footView />
     </div>
@@ -202,48 +202,45 @@ export default {
     name: 'home',
     data () {
         return {
-        
         }
     },
     mounted () {
-        window.addEventListener('scroll', this.handleScroll);
+        document.getElementById("app").addEventListener('scroll', this.handleScroll);
     },
     methods:{
         handleScroll () {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            var scrollTop = document.getElementById("app").scrollTop;
             if(scrollTop >= 80 ){
-                this.$refs.top.style.opacity = '1';  
+                this.$refs.top.style.height = "3rem"
             }else{
-                this.$refs.top.style.opacity = '0'; 
+                this.$refs.top.style.height = "0"
             }
         }
     },
-    
     components: { footView }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    .subject{
-        overflow: auto;
-        background: #ccc;
+    .body{
+        padding-bottom:3.4rem; 
         .search_top{
-            opacity: 0;
             z-index: 2;
             position: fixed;
             top:0;
-            height: 3rem;
+            height: 0;
             width: 100%;
             background: #03a9f4;
             text-align: center;
-            padding-top: .6rem;
-            transition:.3s;
+            transition:.2s;
+            overflow: hidden;
             form{
                 height: 2rem;
                 margin-left: -8rem;
                 position: relative;
                 left: 50%;
+                padding-top: .6rem;
                 input{
                     font-family: 'Raleway', Arial, sans-serif;
                     border: none;
@@ -328,7 +325,7 @@ export default {
             } 
         }
         .menu{
-        	background: #fff;
+            background: #fff;
             li{
                 width: 24%;
                 height: 5rem;
@@ -343,67 +340,68 @@ export default {
             }
         }
         .recommend{
-        	background: #fff;
-        	.rec_tit{
-        		height: 2.5rem;
-        		text-align: center;
-        		color: #aaa;
+            background: #fff;
+            .rec_tit{
+                height: 2.5rem;
+                text-align: center;
+                color: #aaa;
                 line-height: 2rem;
-        	}
-        	.rec_cont{
+            }
+            .rec_cont{
                 flex: 1;
-                padding-bottom: 2.3rem;
+                
                 li{
-                   margin-bottom: 1rem;
-                   overflow: hidden;
-                   border-bottom: solid 1px #eee;
-                   padding: 0 0.8rem 0.8rem 0.8rem;
-                   .img{
-                       float: left;
-                       width: 5.1rem;
-                       img{
-                           width: 5rem;
-                           height: 5rem;
-                       }
-                   }
-                   .content{
-                       float: left;
-                       padding: 0 0.8rem;
-                       .name{
-                           font-size: 1.4rem;
-                           font-family: '楷体';
-                           height: 1.8rem;
-                           line-height: 1.8rem;
-                           color: #333;
-                           font-weight: 400
-                       }
-                       .grade{
-                           height: 1.4rem;
-                           line-height: 1.4rem;
-                           .stars{
-                               float: left;
-                               letter-spacing: -0.2rem;
-                               color: #ff9800;
-                               font-size: 1.2rem !important ;
-                               height: 1.2rem;
-                               line-height: 1.4rem;
-                           }
-                           .money{
-                               height: 1.4rem;
-                               line-height: 1.6rem;
-                               float: left;
-                               color: #aaa;
-                               font-size: 0.8rem;
-                               margin-left: 1.5rem;
-                           }
-                       }
-                       .site{
-                           line-height: 1.8rem;
-                           color: #888;
-                       }
-                   } 
+                margin-bottom: 1rem;
+                overflow: hidden;
+                border-bottom: solid 1px #eee;
+                padding: 0 0.8rem 0.8rem 0.8rem;
+                .img{
+                    float: left;
+                    width: 5.1rem;
+                    img{
+                        width: 5rem;
+                        height: 5rem;
+                    }
                 }
-        	}
+                .content{
+                    float: left;
+                    padding: 0 0.8rem;
+                    .name{
+                        font-size: 1.4rem;
+                        font-family: '楷体';
+                        height: 1.8rem;
+                        line-height: 1.8rem;
+                        color: #333;
+                        font-weight: 400
+                    }
+                    .grade{
+                        height: 1.4rem;
+                        line-height: 1.4rem;
+                        .stars{
+                            float: left;
+                            letter-spacing: -0.2rem;
+                            color: #ff9800;
+                            font-size: 1.2rem !important ;
+                            height: 1.2rem;
+                            line-height: 1.4rem;
+                        }
+                        .money{
+                            height: 1.4rem;
+                            line-height: 1.6rem;
+                            float: left;
+                            color: #aaa;
+                            font-size: 0.8rem;
+                            margin-left: 1.5rem;
+                        }
+                    }
+                    .site{
+                        line-height: 1.8rem;
+                        color: #888;
+                    }
+                } 
+                }
+            }
         }
+
     }
 </style>

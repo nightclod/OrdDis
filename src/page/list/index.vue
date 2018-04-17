@@ -1,6 +1,11 @@
 <template>
-    <div class="subject">
-        
+    <div class="body">
+        <div class="search">
+            <form>
+                <input type="text" name="search_top" autocomplete="off" placeholder="搜索" />
+                <button class="btn_search"><i class="iconfont icon-sousuo"></i></button>
+            </form>
+        </div>
         <div class="menu">
             <ul>
                 <li>
@@ -54,14 +59,11 @@
             </ul>
         </div>
         <div class="recommend">
-        	<div class="rec_tit">
-        		—— · &nbsp; 推荐商家 &nbsp; · ——
-        	</div>
         	<ul class="rec_cont">
         		<li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+        			<div class="img"><img src="http://img.juimg.com/tuku/yulantu/130121/240385-1301210P05616.jpg" alt="" /></div>
         			<div class="content">
-        				<div class="name">美好一天早餐店</div>
+        				<div class="name">风味牛肉</div>
         				<div class="grade">
         					<div class="stars">
         						<i class="iconfont icon-xing_f"></i> 
@@ -70,9 +72,26 @@
         						<i class="iconfont icon-xing_l"></i> 
         						<i class="iconfont icon-xing_l"></i> 
         					</div>
-        					<div class="money">人均 ￥ 20</div>
+        					<div class="money">人均 ￥ 50</div>
         				</div>
-        				<div class="site">北京市王府井大街</div>
+        				<div class="site">济南历下区</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://58pic.ooopic.com/58pic/19/21/03/5684e1c5077fd.jpg!/format/webp" alt="" /></div>
+        			<div class="content">
+        				<div class="name">乐乐蛋糕店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 40</div>
+        				</div>
+        				<div class="site">北京市大栅栏</div>
         			</div>
         		</li>
                 <li>
@@ -92,92 +111,10 @@
         				<div class="site">北京市王府井大街</div>
         			</div>
         		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
+                
         	</ul>
+        </div>
+        <div>
         </div>
         <footView />
     </div>
@@ -198,81 +135,70 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    .subject{
-        overflow: auto;
-        background: #ccc;
-        .banner{
-            position: relative;
-            height: 10rem;
+    .body{
+        padding-bottom:3.4rem; 
+        .search{
+            height: 3rem;
             width: 100%;
-            background: #f2f0ec;
+            text-align: center;
+            transition:.2s;
             overflow: hidden;
-            img{
-                position: absolute;
-                max-height: 100%;
-                left:-3.8rem;
+            form{
+                height: 2rem;
+                position: relative;
+                left: 15%;
+                padding-top: .6rem;
+                input{
+                    font-family: 'Raleway', Arial, sans-serif;
+                    border: none;
+                    height: 2rem;
+                    width: 65%;
+                    line-height: 2rem;
+                    font-size:1rem;
+                    color: #333;
+                    background: #eee ;
+                    display: block;
+                    float: left;
+                    padding: 0;
+                    padding-left: 1rem;
+                }
+                .btn_search{
+                   
+                    border: none;
+                    background:#fff;
+                    display: block;
+                    float: left;
+                    padding: 0 .5rem;
+                    height: 2rem;
+                    i{
+                        font-size: 1.6rem;
+                        color: #2196f3;
+                    }
+                }
             }
         }
-        .search_outer{
-            top: 4rem;
-            right: 11%;
-            position: absolute;
-            height: 2.1rem;
-            width: 17rem;
-            .search{
-                font-family: 'Raleway', Arial, sans-serif;
-                border: none;
-                border-bottom: solid 1px #fed508;
-                height: 2rem;
-                width: 17rem;
-                line-height: 2rem;
-                font-size:1rem;
-                color: #466674;
-                background: rgba(0, 0, 0, 0) ;
-                font-weight: 700;
-            }
-            .but{
-                position: absolute;
-                bottom: 0;
-                height: 2px;
-                display: block;
-                width: 0;
-                background: #4CAF50;
-                transition:.3s;
-            }
-            .search:focus + .but{
-                width: 100%;
-            }
-            .btn_search{
-                display: block;
-                position: absolute;
-                border: none;
-                background: rgba(0, 0, 0, 0) ;
-                bottom: 0.2rem;
-                right: 0;
-                font-size: 1rem;
-                i{
-                    font-size: 1.6rem;
-                    color: #08670c;
-                }
-            }
-        } 
         .menu{
         	background: #fff;
-            li{
-                width: 24%;
-                height: 5rem;
-                text-align: center;
-                display: inline-block;
-                .icon {
-                    margin-top: .4rem;
-                    width: 2rem; 
-                    height: 2rem;
+            height: 5.33rem;
+            overflow: hidden;
+            ul{
+                overflow: auto;
+                white-space:nowrap;
+                li{
+                    width: 4rem;
+                    height: 5rem;
+                    text-align: center;
+                    display: inline-block;
+                    .icon {
+                        margin-top: .4rem;
+                        width: 2rem; 
+                        height: 2rem;
+                    }
+                    .menu_li{
+                        font-size: 1rem;
+                    }
                 }
-                .menu_li{
-                    font-size: 1rem;
-                }
-            }
+            }    
         }
         .recommend{
         	background: #fff;

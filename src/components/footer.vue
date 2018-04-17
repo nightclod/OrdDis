@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="footer" ref="foot">
         <ul>
             <li>
                 <router-link :to="{name:'home'}" exact-active-class="act"> 
@@ -30,11 +30,18 @@
 </template>
 
 <script>
+
 export default {
     data () {
         return {
 
         }
+    },
+    mounted () {
+       
+    },
+     methods:{
+        
     }
 }
 </script>
@@ -47,6 +54,7 @@ export default {
         height: 3.5rem;
         bottom: 0;
         background-color: rgba(238,238,238,.98);
+        z-index: 3;
         ul{
             li{
                 float: left;
