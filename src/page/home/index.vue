@@ -215,7 +215,6 @@ export default {
         },
         handleScroll () {
             if(this.scrollWatch){
-                console.log("执行1")
                 var scrollTop = document.getElementById("app").scrollTop;
                 if(scrollTop >= 80 ){
                     this.$refs.top.style.height = "3rem"

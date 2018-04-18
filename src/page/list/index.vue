@@ -278,7 +278,6 @@ export default {
         },
         handleScroll () {
             if(this.scrollWatch){
-                console.log("执行2");
                 var scrollTop = document.getElementById("app").scrollTop;
                 if(scrollTop >= 250 ){
                     this.$refs.bctop.style.bottom = "5rem"
