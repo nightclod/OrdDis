@@ -1,10 +1,7 @@
 <template>
-  <div id="app" style="height: 100%;
-    width: 100%;
-    position: fixed;
-    overflow: auto;">
-    <router-view/>
-  </div>
+    <div id="app">
+        <router-view/>
+    </div>
 </template>
 
 <script>
@@ -32,4 +29,11 @@ a {border: none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight
 @media screen and (max-width:320px ) {html{font-size: 12px;}}
 @media screen and (min-width:321px) and (max-width:375px ) {html{font-size: 14px;}}
 @media screen and (min-width:376px ) {html{font-size: 16px;}} 
+
+#app{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+}
 </style>

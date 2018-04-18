@@ -202,20 +202,31 @@ export default {
     name: 'home',
     data () {
         return {
+            scrollWatch: true
         }
     },
     mounted () {
+        this.init();
         document.getElementById("app").addEventListener('scroll', this.handleScroll);
     },
     methods:{
+        init () {
+            document.getElementById("app").scrollTop = 0;
+        },
         handleScroll () {
-            var scrollTop = document.getElementById("app").scrollTop;
-            if(scrollTop >= 80 ){
-                this.$refs.top.style.height = "3rem"
-            }else{
-                this.$refs.top.style.height = "0"
+            if(this.scrollWatch){
+                console.log("执行1")
+                var scrollTop = document.getElementById("app").scrollTop;
+                if(scrollTop >= 80 ){
+                    this.$refs.top.style.height = "3rem"
+                }else{
+                    this.$refs.top.style.height = "0"
+                }
             }
         }
+    },
+    destroyed () {
+        this.scrollWatch = false;
     },
     components: { footView }
 }

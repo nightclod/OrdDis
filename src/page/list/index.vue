@@ -59,6 +59,9 @@
             </ul>
         </div>
         <div class="recommend">
+            <div class="rec_tit">
+                <div class="mask"></div>
+            </div>
         	<ul class="rec_cont">
         		<li>
         			<div class="img"><img src="http://img.juimg.com/tuku/yulantu/130121/240385-1301210P05616.jpg" alt="" /></div>
@@ -95,9 +98,9 @@
         			</div>
         		</li>
                 <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+        			<div class="img"><img src="http://img.zcool.cn/community/019e025859ddeca801219c773a5821.jpg@2o.jpg" alt="" /></div>
         			<div class="content">
-        				<div class="name">美好一天早餐店</div>
+        				<div class="name">零食店</div>
         				<div class="grade">
         					<div class="stars">
         						<i class="iconfont icon-xing_f"></i> 
@@ -111,10 +114,146 @@
         				<div class="site">北京市王府井大街</div>
         			</div>
         		</li>
-                
+                <li>
+        			<div class="img"><img src="http://img.zcool.cn/community/010ce1564a90306ac7251c9422c660.jpg@1280w_1l_2o_100sh.webp" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
+                <li>
+        			<div class="img"><img src="http://img.zcool.cn/community/019e025859ddeca801219c773a5821.jpg@2o.jpg" alt="" /></div>
+        			<div class="content">
+        				<div class="name">零食店</div>
+        				<div class="grade">
+        					<div class="stars">
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_l"></i> 
+        					</div>
+        					<div class="money">人均 ￥ 20</div>
+        				</div>
+        				<div class="site">北京市王府井大街</div>
+        			</div>
+        		</li>
         	</ul>
         </div>
-        <div>
+        <div class="backtop" ref="bctop" @click="backtop">
+            <i class="iconfont icon-huidaodingbu"></i>
         </div>
         <footView />
     </div>
@@ -126,8 +265,46 @@ export default {
     name: 'home',
     data () {
         return {
-        
+            scrollWatch: true
         }
+    },
+    mounted () {
+        this.init();
+        document.getElementById("app").addEventListener('scroll', this.handleScroll);
+    },
+    methods:{
+        init () {
+            document.getElementById("app").scrollTop = 0;
+        },
+        handleScroll () {
+            if(this.scrollWatch){
+                console.log("执行2");
+                var scrollTop = document.getElementById("app").scrollTop;
+                if(scrollTop >= 250 ){
+                    this.$refs.bctop.style.bottom = "5rem"
+                }else{
+                    this.$refs.bctop.style.bottom = "-1rem"
+                }
+            }
+            
+        },
+        backtop () {
+            var timer = setInterval(function(){
+                var currentPosition = document.getElementById("app").scrollTop;
+                currentPosition = parseInt(currentPosition / 2);
+                if (currentPosition > 0) {
+                    document.getElementById("app").scrollTo(0, currentPosition);
+                }
+                else {
+                    document.getElementById("app").scrollTo(0, 0);
+                    clearInterval(timer);
+                    timer = null;
+                }
+            },20);
+        }
+    },
+    destroyed () {
+        this.scrollWatch = false;
     },
     components: { footView }
 }
@@ -146,13 +323,13 @@ export default {
             form{
                 height: 2rem;
                 position: relative;
-                left: 15%;
+                left: 10%;
                 padding-top: .6rem;
                 input{
                     font-family: 'Raleway', Arial, sans-serif;
                     border: none;
                     height: 2rem;
-                    width: 65%;
+                    width: 75%;
                     line-height: 2rem;
                     font-size:1rem;
                     color: #333;
@@ -163,7 +340,6 @@ export default {
                     padding-left: 1rem;
                 }
                 .btn_search{
-                   
                     border: none;
                     background:#fff;
                     display: block;
@@ -172,7 +348,7 @@ export default {
                     height: 2rem;
                     i{
                         font-size: 1.6rem;
-                        color: #2196f3;
+                        color: #665c83;
                     }
                 }
             }
@@ -203,10 +379,21 @@ export default {
         .recommend{
         	background: #fff;
         	.rec_tit{
-        		height: 2.5rem;
-        		text-align: center;
-        		color: #aaa;
-                line-height: 2rem;
+        		height: .3rem;
+                margin-bottom: 1.5rem;
+                .mask {
+                    overflow: hidden;
+                    height: 0.3rem;
+                }
+                .mask:after {
+                    content: '';
+                    display: block;
+                    margin: -27px auto 0;
+                    width: 100%;
+                    height: 25px;
+                    border-radius: 125px/12px;
+                    box-shadow: 0 0 8px #141857;
+                }
         	}
         	.rec_cont{
                 flex: 1;
@@ -261,6 +448,20 @@ export default {
                    } 
                 }
         	}
+        }
+        .backtop{
+            position: fixed;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 1.5rem;
+            background: rgba(0, 0, 0, .4);
+            color: #fff;
+            bottom: -1rem;
+            right: 2.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            line-height: 3rem;
+            transition:.2s;
         }
     }
 </style>
