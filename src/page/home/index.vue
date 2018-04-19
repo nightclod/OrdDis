@@ -203,8 +203,7 @@ export default {
     name: 'home',
     data () {
         return {
-            scrollWatch: true,
-            idApp: document.getElementById("app")
+            scrollWatch: true
         }
     },
     mounted () {
@@ -215,12 +214,12 @@ export default {
             if( !Base.gitCookie("ordDisCooike") ){
                 this.$router.push({path:'/login'});
             }
-            this.idApp.scrollTop = 0;
-            this.idApp.addEventListener('scroll', this.handleScroll);
+            document.getElementById("app").scrollTop = 0;
+            document.getElementById("app").addEventListener('scroll', this.handleScroll);
         },
         handleScroll () {
             if(this.scrollWatch){
-                var scrollTop = this.idApp.scrollTop;
+                var scrollTop = document.getElementById("app").scrollTop;
                 if(scrollTop >= 80 ){
                     this.$refs.top.style.height = "3rem"
                 }else{
