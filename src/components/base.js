@@ -9,6 +9,9 @@ var Base = {
             var arr = arrCookie[i].split("=");
             if(arr[0].indexOf("ordDisCookie")> -1){
                 this.cooInfo.name = JSON.parse(arr[1]).name;
+                //获取数据
+
+
                 return arr[1];
             }
         }
@@ -18,6 +21,7 @@ var Base = {
         var exp = new Date();  
         exp.setTime(exp.getTime() + 60 * 60 * 1000);  
         this.cooInfo.account = json.account;
+        //添加数据
         document.cookie = "ordDisCookie=" + JSON.stringify(json) + ";expires=" +  exp.toGMTString() + ";path=/";
     },
     updateCookie : function(){
