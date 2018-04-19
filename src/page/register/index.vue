@@ -2,9 +2,7 @@
     <div class="body">
         <div class="bgimg"></div>
         <form>
-            <div class="head">
-                <img src="../../assets/img/head.png" alt="">
-            </div>
+           
             <div class="info">
                 <div class="input">
                     <i class="iconfont icon-wode"></i>
@@ -27,11 +25,8 @@
                 <button @click="login">登 &nbsp;&nbsp;&nbsp; 录</button>
             </div>
             <div class="hint">
-                <div class="forget">
-                    <router-link :to="{name:'forget'}">忘记密码</router-link>
-                </div>
-                <div class="register">
-                    <router-link :to="{name:'register'}">注册账号</router-link>
+                <div class="login">
+                    <router-link :to="{name:'login'}">去登录</router-link>
                 </div>
             </div>
         </form>
@@ -39,7 +34,7 @@
 </template>
 
 <script>
-import Base from "../../components/base.js";
+
 export default {
     name: 'mine',
     data () {
@@ -49,7 +44,6 @@ export default {
     },
     methods:{
         login () {
-            Base.setCookie({account:"123456"});
             this.$router.push({path:'/'});
         }
     }
@@ -68,9 +62,9 @@ export default {
             z-index: 1;
             height: 100%;
             width: 100%;
-            background:url(../../assets/img/logbg.jpg) no-repeat center center;
+            background:url(../../assets/img/regbg.jpg) no-repeat center center;
             background-size: cover;
-            filter: url(../../assets/img/logbg.jpg); /* FireFox, Chrome, Opera */
+            filter: url(../../assets/img/regbg.jpg); /* FireFox, Chrome, Opera */
             -webkit-filter: blur(6px); /* Chrome, Opera */
             -moz-filter: blur(6px);
             -ms-filter: blur(6px);
@@ -83,14 +77,6 @@ export default {
             height: 36rem;
             left:0;right:0;top:0;bottom:0;
             margin: auto;
-            .head{
-                height: 8rem;
-                margin-bottom: 3rem;
-                img{
-                    height: 8rem;
-                    margin: 0 auto;
-                }
-            }
             .info{
                 width: 24rem;
                 height: 5rem;
@@ -141,7 +127,7 @@ export default {
                     display: block;
                     height: 3rem;
                     width: 16rem;
-                    background: rgba(76, 175, 80, 0.5);
+                    background: rgba(76, 175, 172, 0.5);
                     border-radius: .5rem;
                     border: none;
                     margin: 0 auto;
@@ -158,11 +144,7 @@ export default {
                 margin: 4rem auto;
                 line-height: 1rem;
                 font-size: .9rem;
-                .forget{
-                    height: 1rem;
-                    float: left;
-                }
-                .register{
+                .login{
                     height: 1rem;
                     float: right;
                 }

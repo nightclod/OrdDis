@@ -457,10 +457,12 @@ export default {
             color: #fff;
             bottom: -1rem;
             right: 2.5rem;
-            font-size: 1.8rem;
             text-align: center;
             line-height: 3rem;
             transition:.2s;
+            i{
+                font-size: 1.8rem;
+            }
         }
     }
 </style>

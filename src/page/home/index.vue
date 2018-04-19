@@ -198,6 +198,7 @@
 
 <script>
 import footView from "../../components/footer.vue";
+import Base from "../../components/base.js";
 export default {
     name: 'home',
     data () {
@@ -207,11 +208,14 @@ export default {
     },
     mounted () {
         this.init();
-        document.getElementById("app").addEventListener('scroll', this.handleScroll);
     },
     methods:{
         init () {
+            if( !Base.gitCookie("ordDisCooike") ){
+                this.$router.push({path:'/login'});
+            }
             document.getElementById("app").scrollTop = 0;
+            document.getElementById("app").addEventListener('scroll', this.handleScroll);
         },
         handleScroll () {
             if(this.scrollWatch){
