@@ -1,18 +1,18 @@
 <template>
     <div class="body">
         <div class="bgimg"></div>
-        <form>
+        <form ref="cent">
             <div class="info">
                 <div class="input">
                     <span>名字：</span>
-                    <input type="text" name="name"/>
+                    <input type="text" v-model="name" @input="filName" name="name" placeholder="至少6位汉字、字母、数字" />
                 </div>
                 <div class="bot"><div class="mask"></div></div>
             </div>
             <div class="info">
                 <div class="input">
                     <span>密码：</span>
-                    <input type="password" name="password"/>
+                    <input type="password" name="password"  placeholder="至少8位字母、数字" />
                 </div>
                 <div class="bot"><div class="mask"></div></div>
             </div>
@@ -26,14 +26,14 @@
             <div class="info">
                 <div class="input">
                     <span>手机号：</span>
-                    <input type="text" name="phone"/>
+                    <input type="text" name="phone" />
                 </div>
                 <div class="bot"><div class="mask"></div></div>
             </div>
             <div class="info">
                 <div class="input verify">
                     <span>验证码：</span>
-                    <input type="text" name="verify"/>
+                    <input type="text" name="verify" />
                     <button>获取验证码</button>
                 </div>
                 <div class="bot"><div class="mask"></div></div>
@@ -56,13 +56,34 @@ export default {
     name: 'mine',
     data () {
         return {
-        
+            name: "",
+            fullHeight: document.documentElement.clientHeight
         }
     },
     methods:{
         reg () {
-            console.log("123");
+        },
+        filName(){
+            var that = this;
+            //that.name = 
         }
+    },
+    watch: {
+        fullHeight (val) {
+            if(val < 480){
+                this.$refs.cent.style.bottom = "auto"
+            }else{
+                this.$refs.cent.style.bottom = "0"
+            }
+        }
+    },
+    mounted() {
+      const that = this
+      window.onresize = () => {//窗口改变
+        return (() => {
+          that.fullHeight = document.documentElement.clientHeight
+        })()
+      }
     }
 }
 </script>
@@ -92,7 +113,10 @@ export default {
             z-index: 2;
             width: 24rem;
             height: 36rem;
-            left:0;right:0;top:0;bottom:0;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
             margin: auto;
             .info{
                 width: 24rem;
@@ -103,9 +127,10 @@ export default {
                     color: #333;
                     span{
                         display: inline-block;
-                        width: 5rem;
+                        width: 5.5rem;
                         text-align: right;
                         color: #293990;
+                        font-size: 1.05rem;
                     }
                     input{
                         border: none;
@@ -152,6 +177,10 @@ export default {
                         margin-top:0;
                         margin-right: 3rem;
                     }
+                }
+                ::-webkit-input-placeholder{
+                    color: #888;
+                    font-size: 1rem;
                 }
             }
             .reg{

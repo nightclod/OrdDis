@@ -1,7 +1,7 @@
 <template>
     <div class="body">
         <div class="bgimg"></div>
-        <form>
+        <form ref="cent">
             <div class="head">
                 <img src="../../assets/img/head.png" alt="">
             </div>
@@ -44,13 +44,30 @@ export default {
     name: 'mine',
     data () {
         return {
-        
+            fullHeight: document.documentElement.clientHeight
         }
     },
     methods:{
         login () {
             Base.setCookie({account:"123456"});
             this.$router.push({path:'/'});
+        }
+    },
+    mounted() {
+      const that = this
+      window.onresize = () => {//窗口改变
+        return (() => {
+          that.fullHeight = document.documentElement.clientHeight
+        })()
+      }
+    },
+    watch: {
+        fullHeight (val) {
+            if(val < 500){
+                this.$refs.cent.style.bottom = "auto"
+            }else{
+                this.$refs.cent.style.bottom = "0"
+            }
         }
     }
 }
@@ -62,7 +79,7 @@ export default {
         height: 100%;
         width: 100%;
         position: relative;
-        overflow: hidden;
+        overflow: auto;
         .bgimg{
             position: absolute;
             z-index: 1;
@@ -70,8 +87,8 @@ export default {
             width: 100%;
             background:url(../../assets/img/logbg.jpg) no-repeat center center;
             background-size: cover;
-            filter: url(../../assets/img/logbg.jpg); /* FireFox, Chrome, Opera */
-            -webkit-filter: blur(6px); /* Chrome, Opera */
+            filter: url(../../assets/img/logbg.jpg);
+            -webkit-filter: blur(6px);
             -moz-filter: blur(6px);
             -ms-filter: blur(6px);
             filter: blur(6px);
