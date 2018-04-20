@@ -141,7 +141,7 @@ export default {
                     display: block;
                     height: 3rem;
                     width: 16rem;
-                    background: rgba(76, 175, 80, 0.5);
+                    background: rgba(76, 175, 80, 0.6);
                     border-radius: .5rem;
                     border: none;
                     margin: 0 auto;
@@ -156,6 +156,7 @@ export default {
                 height: 1rem;
                 width: 22rem;
                 margin: 4rem auto;
+                margin-bottom: 0;
                 line-height: 1rem;
                 font-size: .9rem;
                 .forget{

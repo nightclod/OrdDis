@@ -2,27 +2,44 @@
     <div class="body">
         <div class="bgimg"></div>
         <form>
-           
             <div class="info">
                 <div class="input">
-                    <i class="iconfont icon-wode"></i>
-                    <input type="text" class=""/>
+                    <span>名字：</span>
+                    <input type="text" name="name"/>
                 </div>
-                <div class="bot">
-                    <div class="mask"></div>
-                </div>
+                <div class="bot"><div class="mask"></div></div>
             </div>
             <div class="info">
                 <div class="input">
-                    <i class="iconfont icon-icon-mima"></i>
-                    <input type="password" />
+                    <span>密码：</span>
+                    <input type="password" name="password"/>
                 </div>
-                <div class="bot">
-                    <div class="mask"></div>
-                </div>
+                <div class="bot"><div class="mask"></div></div>
             </div>
-            <div class="login">
-                <button @click="login">登 &nbsp;&nbsp;&nbsp; 录</button>
+            <div class="info">
+                <div class="input">
+                    <span>确认密码：</span>
+                    <input type="password" name="affirm"/>
+                </div>
+                <div class="bot"><div class="mask"></div></div>
+            </div>
+            <div class="info">
+                <div class="input">
+                    <span>手机号：</span>
+                    <input type="text" name="phone"/>
+                </div>
+                <div class="bot"><div class="mask"></div></div>
+            </div>
+            <div class="info">
+                <div class="input verify">
+                    <span>验证码：</span>
+                    <input type="text" name="verify"/>
+                    <button>获取验证码</button>
+                </div>
+                <div class="bot"><div class="mask"></div></div>
+            </div>
+            <div class="reg">
+                <button @click="reg">注 &nbsp;&nbsp;&nbsp; 册</button>
             </div>
             <div class="hint">
                 <div class="login">
@@ -43,8 +60,8 @@ export default {
         }
     },
     methods:{
-        login () {
-            this.$router.push({path:'/'});
+        reg () {
+            console.log("123");
         }
     }
 }
@@ -56,7 +73,7 @@ export default {
         height: 100%;
         width: 100%;
         position: relative;
-        overflow: hidden;
+        overflow: auto;
         .bgimg{
             position: absolute;
             z-index: 1;
@@ -64,8 +81,8 @@ export default {
             width: 100%;
             background:url(../../assets/img/regbg.jpg) no-repeat center center;
             background-size: cover;
-            filter: url(../../assets/img/regbg.jpg); /* FireFox, Chrome, Opera */
-            -webkit-filter: blur(6px); /* Chrome, Opera */
+            filter: url(../../assets/img/regbg.jpg);
+            -webkit-filter: blur(6px);
             -moz-filter: blur(6px);
             -ms-filter: blur(6px);
             filter: blur(6px);
@@ -84,12 +101,11 @@ export default {
                 .input{
                     height: 2rem;
                     color: #333;
-                    i{
+                    span{
                         display: inline-block;
-                        margin-left: 3.5rem;
-                        font-size: 1.4rem;
-                        font-weight: 700;
-                        color: #03a9f4;
+                        width: 5rem;
+                        text-align: right;
+                        color: #293990;
                     }
                     input{
                         border: none;
@@ -118,16 +134,34 @@ export default {
                         box-shadow: 0 0 8px #141857;
                     }
                 }
-                
+                .verify{
+                    input{
+                        width: 8rem;
+                    }
+                    button{
+                        display: block;
+                        float: right;
+                        height: 1.6rem;
+                        border: none;
+                        background: rgba(0, 150, 136, 0.7);
+                        border-radius: 0.3rem;
+                        color: #fff;
+                        font-size: 0.8rem;
+                        line-height: 1.6rem;
+                        padding: 0 1rem;
+                        margin-top:0;
+                        margin-right: 3rem;
+                    }
+                }
             }
-            .login{
+            .reg{
                 padding-top: 2rem;
                 height: 5rem;
                 button{
                     display: block;
                     height: 3rem;
                     width: 16rem;
-                    background: rgba(76, 175, 172, 0.5);
+                    background: rgba(76, 175, 172, 0.6);
                     border-radius: .5rem;
                     border: none;
                     margin: 0 auto;
@@ -135,13 +169,13 @@ export default {
                     font-size: 1.4rem;
                     color: #fff;
                     text-align: center;
-                    
                 }
             }
             .hint{
                 height: 1rem;
                 width: 22rem;
                 margin: 4rem auto;
+                margin-bottom: 0;
                 line-height: 1rem;
                 font-size: .9rem;
                 .login{

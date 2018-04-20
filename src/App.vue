@@ -16,7 +16,7 @@
 /* 全局设置 */
  @charset "utf-8";
 *{box-sizing:border-box;}
-body,html{ widht:100%; height:100%;overflow: auto;margin: 0}
+body,html{ width:100%; height:100%;overflow: auto;margin: 0}
 html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,img,header,footer,nav,main{ margin:0; padding:0; }
 ul,ol,li{list-style:none;}
 i,em{font-style:normal;}

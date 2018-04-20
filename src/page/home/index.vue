@@ -72,7 +72,7 @@
             </div>
             <ul class="rec_cont">
                 <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
                     <div class="content">
                         <div class="name">美好一天早餐店</div>
                         <div class="grade">
@@ -89,7 +89,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="img"><img src="http://clubimg.dbankcdn.com/data/attachment/forum/201610/16/225213glupub5u6u17alkx.jpg" alt="" /></div>
                     <div class="content">
                         <div class="name">美好一天早餐店</div>
                         <div class="grade">
@@ -106,7 +106,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
+                    <div class="img"><img src="http://clubimg.dbankcdn.com/data/attachment/forum/201610/16/225215dmzwubjlphwpv9mq.jpg" alt="" /></div>
                     <div class="content">
                         <div class="name">美好一天早餐店</div>
                         <div class="grade">
@@ -211,7 +211,7 @@ export default {
     },
     methods:{
         init () {
-            if( !Base.gitCookie("ordDisCooike") ){
+            if( !Base.getCookie("ordDisCooike") ){
                 this.$router.push({path:'/login'});
             }
             document.getElementById("app").scrollTop = 0;

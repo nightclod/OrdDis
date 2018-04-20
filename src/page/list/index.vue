@@ -106,7 +106,7 @@
         						<i class="iconfont icon-xing_f"></i> 
         						<i class="iconfont icon-xing_f"></i> 
         						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
+        						<i class="iconfont icon-xing_f"></i> 
         						<i class="iconfont icon-xing_l"></i> 
         					</div>
         					<div class="money">人均 ￥ 20</div>
@@ -261,6 +261,7 @@
 
 <script>
 import footView from "../../components/footer.vue";
+import Base from "../../components/base.js";
 export default {
     name: 'home',
     data () {
@@ -270,11 +271,14 @@ export default {
     },
     mounted () {
         this.init();
-        document.getElementById("app").addEventListener('scroll', this.handleScroll);
     },
     methods:{
         init () {
+            if( !Base.getCookie("ordDisCooike") ){
+                this.$router.push({path:'/login'});
+            }
             document.getElementById("app").scrollTop = 0;
+            document.getElementById("app").addEventListener('scroll', this.handleScroll);
         },
         handleScroll () {
             if(this.scrollWatch){
