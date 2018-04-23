@@ -10,130 +10,7 @@
         </div>
         
         <div class="recommend">
-        	<div class="rec_tit">
-        		—— · &nbsp; 推荐商家 &nbsp; · ——
-        	</div>
-        	<ul class="rec_cont">
-        		<li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">美好一天早餐店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-        	</ul>
+        	
         </div>
         <footView />
     </div>
@@ -145,7 +22,6 @@ export default {
     name: 'home',
     data () {
         return {
-        
         }
     },
     components: { footView }

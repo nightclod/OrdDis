@@ -3,12 +3,12 @@
         <div class="bgimg"></div>
         <form ref="cent">
             <div class="head">
-                <img src="../../assets/img/head.png" alt="">
+                <img src="../../assets/img/head.png" ref="name">
             </div>
             <div class="info">
                 <div class="input">
                     <i class="iconfont icon-wode"></i>
-                    <input type="text" class=""/>
+                    <input type="text" v-model="name" @input="filName('name')" @blur="blur"  maxlength="10" placeholder="请输入名字或账号"/>
                 </div>
                 <div class="bot">
                     <div class="mask"></div>
@@ -17,14 +17,14 @@
             <div class="info">
                 <div class="input">
                     <i class="iconfont icon-icon-mima"></i>
-                    <input type="password" />
+                    <input type="password" v-model="password" @input="filName('password')" maxlength="16" placeholder="请输入密码"/>
                 </div>
                 <div class="bot">
                     <div class="mask"></div>
                 </div>
             </div>
             <div class="login">
-                <button @click="login">登 &nbsp;&nbsp;&nbsp; 录</button>
+                <button type="button" @click="login">登 &nbsp;&nbsp;&nbsp; 录</button>
             </div>
             <div class="hint">
                 <div class="forget">
@@ -44,17 +44,49 @@ export default {
     name: 'mine',
     data () {
         return {
+            name: "",
+            password: "",
+            img: "",
             fullHeight: document.documentElement.clientHeight
         }
     },
     methods:{
+        filName(key){
+            var that = this;
+            switch(key){
+                case "name": 
+                    this.name = this.name.replace(/[^0-9A-Za-z\u4E00-\u9FA5]/g,'');
+                    break;
+                case "password": 
+                    this.password = this.password.replace(/[^0-9A-Za-z]/g,'');
+                    break;
+            }
+        },
+        blur(){
+            if(this.name === "123456"){
+                this.$refs.name.setAttribute("src", "https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=72949495,415020620&fm=202&mola=new&crop=v1");
+            }else{
+                this.$refs.name.setAttribute("src", this.img);
+            }
+        },
         login () {
-            Base.setCookie({account:"123456"});
-            this.$router.push({path:'/'});
+            if(!this.name){
+                alert("请输入账号");
+            }else if(!this.password){
+                alert("请输入密码");
+            }else{
+                if(this.name === "123456" && this.password === "123456789"){
+                    Base.setCookie({account:"123456"});
+                    this.$router.push({path:'/'});
+                }else{
+                    alert("账号密码不对");
+                }
+            }
         }
     },
     mounted() {
-      const that = this
+      const that = this;
+      this.img = this.$refs.name.getAttribute("src");
       window.onresize = () => {//窗口改变
         return (() => {
           that.fullHeight = document.documentElement.clientHeight
@@ -102,9 +134,15 @@ export default {
             margin: auto;
             .head{
                 height: 8rem;
+                width: 8rem;
+                border-radius: 4rem;
+                overflow: hidden;
+                margin: 0 auto;
                 margin-bottom: 3rem;
+                border: solid 1px #009688;
                 img{
                     height: 8rem;
+                    width: 8rem;
                     margin: 0 auto;
                 }
             }
@@ -129,8 +167,12 @@ export default {
                         background: rgba(0,0,0,0);
                         display: inline-block;
                         line-height: 2rem;
-                        font-size: 1.4rem;
+                        font-size: 1.25rem;
                         color: #1c7a62;
+                    }
+                    ::-webkit-input-placeholder{
+                        color: #888;
+                        font-size: 1rem;
                     }
                 }
                 .bot{

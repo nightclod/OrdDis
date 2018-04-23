@@ -34,14 +34,11 @@
 export default {
     data () {
         return {
-
         }
     },
     mounted () {
-       
     },
-     methods:{
-        
+    methods:{
     }
 }
 </script>

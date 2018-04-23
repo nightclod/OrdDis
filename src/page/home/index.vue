@@ -192,18 +192,19 @@
                 </li>
             </ul>
         </div>
+        <backTop />
         <footView />
     </div>
 </template>
 
 <script>
 import footView from "../../components/footer.vue";
+import backTop from "../../components/backtop.vue";
 import Base from "../../components/base.js";
 export default {
     name: 'home',
     data () {
         return {
-            scrollWatch: true
         }
     },
     mounted () {
@@ -215,23 +216,21 @@ export default {
                 this.$router.push({path:'/login'});
             }
             document.getElementById("app").scrollTop = 0;
-            document.getElementById("app").addEventListener('scroll', this.handleScroll);
+            document.getElementById("app").addEventListener('scroll', this.handlScroll);
         },
-        handleScroll () {
-            if(this.scrollWatch){
-                var scrollTop = document.getElementById("app").scrollTop;
-                if(scrollTop >= 80 ){
-                    this.$refs.top.style.height = "3rem"
-                }else{
-                    this.$refs.top.style.height = "0"
-                }
+        handlScroll () {
+            var scrollTop = document.getElementById("app").scrollTop;
+            if(scrollTop >= 80 ){
+                this.$refs.top.style.height = "3rem"
+            }else{
+                this.$refs.top.style.height = "0"
             }
         }
     },
     destroyed () {
-        this.scrollWatch = false;
+        document.getElementById("app").removeEventListener('scroll', this.handlScroll);
     },
-    components: { footView }
+    components: { footView , backTop }
 }
 </script>
 

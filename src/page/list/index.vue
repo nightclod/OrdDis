@@ -252,21 +252,19 @@
         		</li>
         	</ul>
         </div>
-        <div class="backtop" ref="bctop" @click="backtop">
-            <i class="iconfont icon-huidaodingbu"></i>
-        </div>
+        <backTop />
         <footView />
     </div>
 </template>
 
 <script>
 import footView from "../../components/footer.vue";
+import backTop from "../../components/backtop.vue";
 import Base from "../../components/base.js";
 export default {
     name: 'home',
     data () {
         return {
-            scrollWatch: true
         }
     },
     mounted () {
@@ -278,38 +276,11 @@ export default {
                 this.$router.push({path:'/login'});
             }
             document.getElementById("app").scrollTop = 0;
-            document.getElementById("app").addEventListener('scroll', this.handleScroll);
-        },
-        handleScroll () {
-            if(this.scrollWatch){
-                var scrollTop = document.getElementById("app").scrollTop;
-                if(scrollTop >= 250 ){
-                    this.$refs.bctop.style.bottom = "5rem"
-                }else{
-                    this.$refs.bctop.style.bottom = "-1rem"
-                }
-            }
-            
-        },
-        backtop () {
-            var timer = setInterval(function(){
-                var currentPosition = document.getElementById("app").scrollTop;
-                currentPosition = parseInt(currentPosition / 2);
-                if (currentPosition > 0) {
-                    document.getElementById("app").scrollTo(0, currentPosition);
-                }
-                else {
-                    document.getElementById("app").scrollTo(0, 0);
-                    clearInterval(timer);
-                    timer = null;
-                }
-            },20);
         }
     },
     destroyed () {
-        this.scrollWatch = false;
     },
-    components: { footView }
+    components: { footView , backTop }
 }
 </script>
 
