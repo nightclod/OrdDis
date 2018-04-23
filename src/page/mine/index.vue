@@ -49,7 +49,10 @@ export default {
         init() { 
             if( !Base.getCookie("ordDisCooike") ){
                 this.$router.push({path:'/login'});
+            }else{
+                
             }
+
         },
         quit () {
             Base.deleteCookie();

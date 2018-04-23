@@ -17,52 +17,68 @@
         <div class="menu">
             <ul>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-mifan"></use>
-                    </svg>
-                    <div class="menu_li">美食</div>
+                    <router-link :to="{name:'list', params:{ info: '美食' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-mifan"></use>
+                        </svg>
+                        <div class="menu_li">美食</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-wucan"></use>
-                    </svg>
-                    <div class="menu_li">午餐</div>
+                    <router-link :to="{name:'list', params:{ info: '午餐' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-wucan"></use>
+                        </svg>
+                        <div class="menu_li">午餐</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dinner"></use>
-                    </svg>
-                    <div class="menu_li">晚餐</div>
+                    <router-link :to="{name:'list', params:{ info: '晚餐' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-dinner"></use>
+                        </svg>
+                        <div class="menu_li">晚餐</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-meishijiayin"></use>
-                    </svg>
-                    <div class="menu_li">饮品</div>
+                    <router-link :to="{name:'list', params:{ info: '饮品' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-meishijiayin"></use>
+                        </svg>
+                        <div class="menu_li">饮品</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-meishi"></use>
-                    </svg>
-                    <div class="menu_li">汉堡</div>
+                    <router-link :to="{name:'list', params:{ info: '汉堡' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-meishi"></use>
+                        </svg>
+                        <div class="menu_li">汉堡</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-miantiao"></use>
-                    </svg>
-                    <div class="menu_li">超值</div>
+                    <router-link :to="{name:'list', params:{ info: '超值' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-miantiao"></use>
+                        </svg>
+                        <div class="menu_li">超值</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-kaochuan"></use>
-                    </svg>
-                    <div class="menu_li">小吃</div>
+                    <router-link :to="{name:'list', params:{ info: '小吃' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-kaochuan"></use>
+                        </svg>
+                        <div class="menu_li">小吃</div>
+                    </router-link>
                 </li>
                 <li>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-_waimai"></use>
-                    </svg>
-                    <div class="menu_li">速达</div>
+                    <router-link :to="{name:'list', params:{ info: '速达' }}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-_waimai"></use>
+                        </svg>
+                        <div class="menu_li">速达</div>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -344,12 +360,17 @@ export default {
                 height: 5rem;
                 text-align: center;
                 display: inline-block;
+                a{
+                    color: #000;
+                }
                 .icon {
                     margin-top: .4rem;
                     width: 2rem; 
                     height: 2rem;
                 }
-                .menu_li{font-size: 1rem;}
+                .menu_li{
+                    font-size: 1rem;
+                }
             }
         }
         .recommend{

@@ -2,8 +2,8 @@
     <div class="body">
         <div class="search">
             <form>
-                <input type="text" name="search_top" autocomplete="off" placeholder="搜索" />
-                <button class="btn_search"><i class="iconfont icon-sousuo"></i></button>
+                <input type="text" autocomplete="off" placeholder="搜索" />
+                <button type="button" class="btn_search"><i class="iconfont icon-sousuo"></i></button>
             </form>
         </div>
         <div class="menu">
@@ -275,6 +275,7 @@ export default {
             if( !Base.getCookie("ordDisCooike") ){
                 this.$router.push({path:'/login'});
             }
+            console.log(this.$route.params.info);
             document.getElementById("app").scrollTop = 0;
         }
     },

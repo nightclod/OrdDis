@@ -8,7 +8,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{name:'list'}"  exact-active-class="act"> 
+                <router-link :to="{name:'list', params:{ info: '' }}"  exact-active-class="act"> 
                     <i class="iconfont icon-chazhaobiaodanliebiao"></i>
                     <div>列表</div>
                 </router-link>
