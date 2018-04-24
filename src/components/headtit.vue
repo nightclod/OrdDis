@@ -1,0 +1,62 @@
+<template>
+    <div class="head">
+        <i class="iconfont icon-fanhui return" onClick="javascript :history.back(-1);"></i>
+        <div class="tit">{{tit}}</div>
+        <div class="info"></div>
+    </div>
+</template>
+
+<script>
+
+export default {
+    data () {
+        return {
+            
+         }
+    },
+    props: {
+        tit: String
+    },
+    mounted () {
+    },
+    methods:{
+    }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+    .head{
+        position: fixed;
+        width: 100%;
+        height: 2.6rem;
+        top: 0;
+        background-color: rgba(0,0,0,0);
+        z-index: 2;
+        line-height: 2.6rem;
+        text-align: center;
+        color: #333;
+        border-bottom: solid 1px #fff;
+        .return{
+            display: block;
+            float: left;
+            width: 10%;
+            height: 2.6rem;
+            font-size: 1.2rem;
+        }
+        .tit{
+            float: left;
+            width: 70%;
+            height: 2.6rem;
+            padding-left: 10%;
+            font-size: 1.2rem;
+            font-family: '楷体';
+            font-weight: 700;
+        }
+        .info{
+            float: left;
+            width: 20%;
+            height: 2.6rem;
+        }
+    }
+</style>

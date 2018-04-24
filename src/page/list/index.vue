@@ -2,55 +2,55 @@
     <div class="body">
         <div class="search">
             <form>
-                <input type="text" autocomplete="off" placeholder="搜索" />
-                <button type="button" class="btn_search"><i class="iconfont icon-sousuo"></i></button>
+                <input type="text" autocomplete="off" placeholder="搜索" ref="search"/>
+                <button type="button" @click="quer($refs.search.value)" class="btn_search"><i class="iconfont icon-sousuo"></i></button>
             </form>
         </div>
         <div class="menu">
             <ul>
-                <li>
+                <li @click="quer('美食')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-mifan"></use>
                     </svg>
                     <div class="menu_li">美食</div>
                 </li>
-                <li>
+                <li @click="quer('午餐')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-wucan"></use>
                     </svg>
                     <div class="menu_li">午餐</div>
                 </li>
-                <li>
+                <li @click="quer('晚餐')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-dinner"></use>
                     </svg>
                     <div class="menu_li">晚餐</div>
                 </li>
-                <li>
+                <li @click="quer('饮品')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-meishijiayin"></use>
                     </svg>
                     <div class="menu_li">饮品</div>
                 </li>
-                <li>
+                <li @click="quer('汉堡')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-meishi"></use>
                     </svg>
                     <div class="menu_li">汉堡</div>
                 </li>
-                <li>
+                <li @click="quer('超值')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-miantiao"></use>
                     </svg>
                     <div class="menu_li">超值</div>
                 </li>
-                <li>
+                <li @click="quer('小吃')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-kaochuan"></use>
                     </svg>
                     <div class="menu_li">小吃</div>
                 </li>
-                <li>
+                <li @click="quer('速达')">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-_waimai"></use>
                     </svg>
@@ -275,8 +275,14 @@ export default {
             if( !Base.getCookie("ordDisCooike") ){
                 this.$router.push({path:'/login'});
             }
-            console.log(this.$route.params.info);
             document.getElementById("app").scrollTop = 0;
+            this.quer(this.$route.params.info);
+        },
+        quer (key) {
+            if(key){
+                this.$refs.search.value = key;
+            }
+            console.log(key);
         }
     },
     destroyed () {

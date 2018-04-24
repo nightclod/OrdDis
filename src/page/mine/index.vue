@@ -15,15 +15,15 @@
         </div>
         <div class="cent">
             <div class="centUl">
-                <div class="list">
-                    修改收货地址
+                <router-link :to="{name:'forget'}" class="list">
+                    地址管理
                     <i class="iconfont icon-icon_on_the_right"></i>
-                </div>
-                <div class="list">
+                </router-link>
+                <router-link :to="{name:'amend'}" class="list">
                     修改密码
                     <i class="iconfont icon-icon_on_the_right"></i>
-                </div>
-                <button class="quit" @click="quit"> 退出登录 </button>
+                </router-link>
+                <button class="quit" @click="quit"> 退 出 登 录 </button>
             </div>
         </div>
         <footView />
@@ -107,6 +107,7 @@ export default {
                 position: relative;
                 min-height: 100%;
                 .list{
+                    display: block;
                     height: 4rem;
                     line-height: 4rem;
                     background: #eee;

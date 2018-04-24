@@ -6,6 +6,8 @@ import Shop from '@/page/shop'
 import Mine from '@/page/mine'
 import Login from '@/page/login'
 import Register from '@/page/register'
+import Forget from '@/page/forget'
+import Amend from '@/page/amend'
 
 Vue.use(Router)
 
@@ -40,6 +42,16 @@ export default new Router({
             path: '/register',
             name: 'register',
             component: Register
+        },
+        {
+            path: '/forget',
+            name: 'forget',
+            component: Forget
+        },
+        {
+            path: '/amend',
+            name: 'amend',
+            component: Amend
         }
     ]
 })
