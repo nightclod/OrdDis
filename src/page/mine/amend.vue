@@ -1,17 +1,17 @@
 <template>
     <div class="body">
-        <headTit :tit="'忘记密码'" ></headTit>
+        <headTit :tit="'修改密码'" ></headTit>
         <div class="bgimg"></div>
         <div class="center">
             <form ref="cent">
                 <div class="info">
                     <div class="input">
-                        <span>名字：</span>
-                        <input type="text" v-model="name" @input="filName('name')" @blur="blur('name')"  maxlength="10" placeholder="输入名字或账号" />
-                        <i class="iconfont" ref="hint_name"></i>
+                        <span>旧密码：</span>
+                        <input type="password" v-model="lpassword" @input="filName('password')" @blur="blur('lpassword')"  maxlength="16" />
+                        <i class="iconfont" ref="hint_lpassword"></i>
                     </div>
                     <div class="bot"><div class="mask"></div></div>
-                    <div class="err_hint">{{info_name}}</div>
+                    <div class="err_hint">{{info_lpassword}}</div>
                 </div>
                 <div class="info">
                     <div class="input">
@@ -45,14 +45,12 @@
                 </div>
                 <div class="hint">
                     <div class="login">
-                        <router-link :to="{name:'login'}">去登录</router-link>
+                        <router-link :to="{name:'login'}">重新登录</router-link>
                     </div>
                 </div>
             </form>
         </div>
-            
     </div>
-    
 </template>
 
 <script>
@@ -61,9 +59,9 @@ export default {
     name: 'mine',
     data () {
         return {
-            name: "",
-            info_name: "",
-            v_name: false,
+            lpassword: "",
+            info_lpassword: "",
+            v_lpassword: "",
             password: "",
             info_password: "",
             v_password: false,
@@ -81,13 +79,10 @@ export default {
         filName(key){
             var that = this;
             switch(key){
-                case "name": 
-                    that.name = that.name.replace(/[^0-9A-Za-z\u4E00-\u9FA5]/g,'');
-                    break;
-                case "password":
+                case "password": 
                     that.password = that.password.replace(/[^0-9A-Za-z]/g,'');
                     break;
-                case "affirm":
+                case "affirm": 
                     that.affirm = that.affirm.replace(/[^0-9A-Za-z]/g,'');
                     break;
                 case "verify": 
@@ -98,17 +93,16 @@ export default {
         blur(key){
             var that = this;
             switch(key){
-                case "name":
-                    if(that.name){
-                        //--------------------------------????
-                        if(that.name === "123456"){
-                            that.info("name", true, "");
+                case "lpassword": 
+                    if(that.lpassword){
+                        if(that.lpassword.length > 7){
+                            that.info("lpassword", true, "");
                         }else{
-                            that.info("name", false, "无此账号，请修改");
-                        }
+                            that.info("lpassword", false, "由8至16位字符组成");
+                        };
                     }else{
-                        that.info("name", "", "");
-                    } 
+                        that.info("lpassword", "", "");
+                    }
                     break;
                 case "password": 
                     if(that.password){
@@ -161,24 +155,35 @@ export default {
                     }
                     break;
             }
-        },
+         },
         gitVerify () {
             alert(this.ht_verify);
         },
         regInfo () {
-            if(!this.v_name){
-                alert("请输入正确的名字或账号");
-                this.$refs.hint_name.setAttribute("class","iconfont icon-icon1");
-            }else if(!this.v_password){
-                alert("请输入正确的密码");
-                this.$refs.hint_password.setAttribute("class","iconfont icon-icon1");
-            }else if(!this.v_affirm){
+            var that = this;
+            if(!that.v_lpassword){
+                alert("请输入正确格式的旧密码");
+                that.$refs.hint_lpassword.setAttribute("class","iconfont icon-icon1");
+            }else if(!that.v_password){
+                alert("请输入正确的新密码");
+                that.$refs.hint_password.setAttribute("class","iconfont icon-icon1");
+            }else if(!that.v_affirm){
                 alert("请输入正确的确认密码");
-                this.$refs.hint_affirm.setAttribute("class","iconfont icon-icon1");
-            }else if(this.verify !== this.ht_verify){
+                that.$refs.hint_affirm.setAttribute("class","iconfont icon-icon1");
+            }else if(that.verify !== that.ht_verify){
                 alert("请输入正确的验证码");
-            }else{
-                alert(this.name,this.password,this.affirm,this.verify);
+            }else{ 
+                alert(that.password,that.affirm,that.verify);
+                if(that.lpassword === "123456789"){
+                    that.info("lpassword", true, "");
+
+                    //-------------------?????
+
+                    that.lpassword === that.password;
+                }else{
+                    alert("旧密码不正确");
+                    that.$refs.hint_lpassword.setAttribute("class","iconfont icon-icon1");
+                }
             }
         },
         info (key,start,str){
@@ -207,7 +212,7 @@ export default {
       const that = this
       window.onresize = () => {//窗口改变
         return (() => {
-            that.fullHeight = document.documentElement.clientHeight
+          that.fullHeight = document.documentElement.clientHeight
         })()
       }
     },
@@ -220,17 +225,18 @@ export default {
     .body{
         height: 100%;
         width: 100%;
-        padding-top:2.6rem;
         position: relative;
+        padding-top: 2.6rem;
+        overflow: auto;
         .bgimg{
             position: absolute;
             top:0;
             z-index: 1;
             height: 100%;
             width: 100%;
-            background:url(../../assets/img/logbg.jpg) no-repeat center center;
+            background:url(../../assets/img/regbg.jpg) no-repeat center center;
             background-size: cover;
-            filter: url(../../assets/img/logbg.jpg);
+            filter: url(../../assets/img/regbg.jpg);
             -webkit-filter: blur(6px);
             -moz-filter: blur(6px);
             -ms-filter: blur(6px);
@@ -360,6 +366,5 @@ export default {
                 }
             }
         }
-            
     }
 </style>

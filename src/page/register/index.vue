@@ -4,7 +4,7 @@
         <div class="bgimg"></div>
         <div class="center">
             <form ref="cent">
-                <div class="info">
+                <div class="info" style="padding-top:1.7rem;height:5rem;">
                     <div class="input">
                         <span>名字：</span>
                         <input type="text" v-model="name" @input="filName('name')" @blur="blur('name')"  maxlength="10" placeholder="6至10位汉字、字母、数字组成" />
@@ -92,118 +92,95 @@ export default {
             var that = this;
             switch(key){
                 case "name": 
-                    this.name = this.name.replace(/[^0-9A-Za-z\u4E00-\u9FA5]/g,'');
+                    that.name = that.name.replace(/[^0-9A-Za-z\u4E00-\u9FA5]/g,'');
                     break;
                 case "password": 
-                    this.password = this.password.replace(/[^0-9A-Za-z]/g,'');
+                    that.password = that.password.replace(/[^0-9A-Za-z]/g,'');
                     break;
                 case "affirm": 
-                    this.affirm = this.affirm.replace(/[^0-9A-Za-z]/g,'');
+                    that.affirm = that.affirm.replace(/[^0-9A-Za-z]/g,'');
                     break;
                 case "phone": 
-                    this.phone = this.phone.replace(/[^0-9]/g,'');
+                    that.phone = that.phone.replace(/[^0-9]/g,'');
                     break;
                 case "verify": 
-                    this.verify = this.verify.replace(/[^0-9]/g,'');
+                    that.verify = that.verify.replace(/[^0-9]/g,'');
                     break;
             }
         },
         blur(key){
+            var that = this;
             switch(key){
                 case "name":
-                    if(this.name){
-                        if(this.name.length > 5){ 
-                            this.v_name = true;
-                            this.$refs.hint_name.setAttribute("class","iconfont icon-duigou");
-                            this.info_name = "";
+                    if(that.name){
+                        if(that.name.length > 5){ 
+                            that.info("name", true, "");
                         }else{
-                            this.v_name = false;
-                            this.$refs.hint_name.setAttribute("class","iconfont icon-icon1");
-                            this.info_name = "由6至10位字符组成";
+                            that.info("name", false, "由6至10位字符组成");
                         };
                     }else{
-                        this.v_name = false;
-                        this.$refs.hint_name.setAttribute("class","iconfont");
-                        this.info_name = "";
+                        that.info("name", "", "");
                     } 
                     break;
                 case "password": 
-                    if(this.password){
-                        if(this.password.length > 7){ 
-                            this.v_password = true;
-                            this.$refs.hint_password.setAttribute("class","iconfont icon-duigou");
-                            this.info_password = "";
-                            if(this.affirm){
-                                if(this.affirm === this.password){
-                                    this.v_affirm = true;
-                                    this.$refs.hint_affirm.setAttribute("class","iconfont icon-duigou");
-                                    this.info_affirm = "";
+                    if(that.password){
+                        if(that.password.length > 7){ 
+                            that.info("password", true, "");
+                            if(that.affirm){
+                                if(that.affirm === that.password){
+                                    that.info("affirm", true, "");
                                 }else{
-                                    this.v_affirm = false;
-                                    this.$refs.hint_affirm.setAttribute("class","iconfont icon-icon1");
-                                    this.info_affirm = "与输入密码不符";
+                                    that.info("affirm", false, "与输入密码不符");
                                 };
                             }
                         }else{
-                            this.v_password = false;
-                            this.$refs.hint_password.setAttribute("class","iconfont icon-icon1");
-                            this.info_password = "由8至16位字符组成";
+                            that.info("password", false, "由8至16位字符组成");
+                            if(that.affirm){
+                                that.info("affirm", false, "请输入正确密码");
+                            }
                         };
                     }else{
-                        this.v_password = false;
-                        this.$refs.hint_password.setAttribute("class","iconfont");
-                        this.info_password = "";
+                        that.info("password", "", "");
+                        if(that.affirm){
+                            that.info("affirm", false, "请输入正确密码");
+                    }
                     }
                     break;
                 case "affirm": 
-                    if(this.affirm){
-                        if(this.v_password){
-                            if(this.affirm === this.password){
-                                this.v_affirm = true;
-                                this.$refs.hint_affirm.setAttribute("class","iconfont icon-duigou");
-                                this.info_affirm = "";
+                    if(that.affirm){
+                        if(that.v_password){
+                            if(that.affirm === that.password){
+                                that.info("affirm", true, "");
                             }else{
-                                this.v_affirm = false;
-                                this.$refs.hint_affirm.setAttribute("class","iconfont icon-icon1");
-                                this.info_affirm = "与输入密码不符";
+                                that.info("affirm", false, "与输入密码不符");
                             };
                         }else{
-                            this.v_affirm = false;
-                            this.$refs.hint_affirm.setAttribute("class","iconfont icon-icon1");
-                            this.info_affirm = "请输入正确密码";
+                            that.info("affirm", false, "请输入正确密码");
                         }
                     }else{
-                        this.v_affirm = false;
-                        this.$refs.hint_affirm.setAttribute("class","iconfont");
-                        this.info_affirm = "";
+                        that.info("affirm", "", "");
                     }
                     break;
                 case "phone": 
-                    if(this.phone){
-                        if(/^[1][3,4,5,7,8][0-9]{9}$/.test(this.phone)){
-                            this.v_phone = true; 
-                            this.$refs.hint_phone.setAttribute("class","iconfont icon-duigou");
-                            this.info_phone = "";
+                    if(that.phone){
+                        if(/^[1][3,4,5,7,8][0-9]{9}$/.test(that.phone)){
+                            that.info("phone", true, "");
                         }else{
-                            this.v_phone = false; 
-                            this.$refs.hint_phone.setAttribute("class","iconfont icon-icon1");
-                            this.info_phone = "请输入正确的手机号";
+                            that.info("phone", false, "请输入正确的手机号");
                         };
                     }else{
-                        this.v_phone = false; 
-                        this.$refs.hint_phone.setAttribute("class","iconfont");
-                        this.info_phone = "";
+                        that.info("phone", "", "");
                     }
                     break;
                 case "verify": 
-                    if(this.verify){
-                        if(this.verify.length == "6"){ 
-                            this.info_verify = "";
+                    if(that.verify){
+                        if(that.verify.length == "6"){ 
+                            that.info_verify = "";
                         }else{
-                            this.info_verify = "请输入正确的6位验证码";
+                            that.info_verify = "请输入正确的6位验证码";
                         }
                     }else{
-                        this.info_verify = "";
+                        that.info_verify = "";
                     }
                     break;
             }
@@ -230,6 +207,16 @@ export default {
                 alert(this.name,this.password,this.affirm,this.phone,this.verify);
             }
         },
+        info (key,start,str){
+            var that = this;
+            if(start === true || start === false){
+                that.$refs['hint_' + key].setAttribute("class","iconfont " + (start ? "icon-duigou" : "icon-icon1") );
+            }else{
+                that.$refs['hint_' + key].setAttribute("class","iconfont");
+            }
+            that['v_' + key] = start ? true : false;
+            that['info_' + key] = str;
+        }
     },
     watch: {
         fullHeight (val) {
@@ -261,7 +248,9 @@ export default {
         width: 100%;
         position: relative;
         overflow: auto;
+        padding-top: 2.6rem; 
         .bgimg{
+            top: 0;
             position: absolute;
             z-index: 1;
             height: 100%;
@@ -277,7 +266,6 @@ export default {
         .center{
             height: 100%;
             width: 100%;
-            padding-top:2.6rem;
             overflow: auto;
             form{
                 position: relative;
@@ -289,8 +277,8 @@ export default {
                 margin-top:-16.5rem;
                 .info{
                     width: 24rem;
-                    height: 5rem;
-                    padding-top: 1.7rem;
+                    height: 4.5rem;
+                    padding-top: 1.2rem;
                     .input{
                         height: 2rem;
                         color: #333;

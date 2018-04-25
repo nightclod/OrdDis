@@ -7,7 +7,8 @@ import Mine from '@/page/mine'
 import Login from '@/page/login'
 import Register from '@/page/register'
 import Forget from '@/page/forget'
-import Amend from '@/page/amend'
+import Amend from '@/page/mine/amend.vue'
+import Person from '@/page/mine/person.vue'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
             path: '/amend',
             name: 'amend',
             component: Amend
+        },
+        {
+            path: '/person',
+            name: 'person',
+            component: Person
         }
     ]
 })

@@ -3,6 +3,7 @@
         <i class="iconfont icon-fanhui return" onClick="javascript :history.back(-1);"></i>
         <div class="tit">{{tit}}</div>
         <div class="info"></div>
+        <div class="xian"></div>
     </div>
 </template>
 
@@ -36,7 +37,6 @@ export default {
         line-height: 2.6rem;
         text-align: center;
         color: #333;
-        border-bottom: solid 1px #fff;
         .return{
             display: block;
             float: left;
@@ -57,6 +57,13 @@ export default {
             float: left;
             width: 20%;
             height: 2.6rem;
+        }
+        .xian{
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            background: rgba($color: #999, $alpha: 0.3)
         }
     }
 </style>

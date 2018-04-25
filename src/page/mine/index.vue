@@ -1,21 +1,21 @@
 <template>
     <div class="body">
-        <div class="mineInfo">
+        <router-link :to="{name:'person'}" class="mineInfo">
             <div class="img">
                 <img src="../../assets/img/head.png" alt="">
             </div>
             <div class="info">
-                名字：{{name}}<br/>
                 账户：{{account}}<br/>
+                名字：{{name}}<br/>
                 手机号：{{phone}}
             </div>
             <div class="details">
                 <i class="iconfont icon-icon_on_the_right"></i>
             </div>
-        </div>
+        </router-link>
         <div class="cent">
             <div class="centUl">
-                <router-link :to="{name:'forget'}" class="list">
+                <router-link :to="{name:'person'}" class="list">
                     地址管理
                     <i class="iconfont icon-icon_on_the_right"></i>
                 </router-link>
