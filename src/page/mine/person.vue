@@ -44,6 +44,7 @@ export default {
             name: "姓名123",
             account: "1589888",
             phone: "17865923008",
+            Nphone: "",
             sex: "男",
             birthday: "2015-10-10"
         }
@@ -59,22 +60,21 @@ export default {
             }
         },
         amPhone() {
-            MessageBox.prompt('', '测试', {inputPlaceholder: '测试文字'}).then(({ value, action }) => {
-                console.log(value)
-            })
-        //      let that = this;
-        // MessageBox({
-        //     message: `<div class="homeTelPhone">
-        //             <input type="tel" class="home_input" placeholder="联系方式" ref=homeTel @blur="homeTel()" maxlength="11" v-model="inputtext.phone"/>
-        //             <span class="home_num_error" v-show="isShowPhoneError"  style="font-size:.26rem; box-shadow: 0 0 0 0;">请输入正确的联系方式</span>
-        //         </div>`,
-        //     confirmButtonText:'提交'
-        // }).then(action => {
-        //     that.$router.push({ path: '/home' });
-        // })
-            // MessageBox.prompt('请输入姓名').then(({ value, action }) => {
-
-            // });
+            var that = this;
+            MessageBox.prompt ('请输入新的手机号',{
+                confirmButtonText:'提交',
+                inputType:"number",
+                inputValidator:function(v){
+                    if(v == null){ return true; }
+                    return /^[1][3,4,5,7,8][0-9]{9}$/.test(v);
+                },
+                inputErrorMessage:'请输入正确的手机号',
+            }).then((val) => {  
+                console.info('confirm,value is' + val.value)  ;
+                that.Nphone = val.value;
+            }, () => {  
+                
+            }) 
         }
     },
     components: { headTit }
