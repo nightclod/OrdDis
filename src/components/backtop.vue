@@ -19,7 +19,7 @@ export default {
             if(scrollTop >= 250 ){
                 this.$refs.backtop.style.bottom = "5rem"
             }else{
-                this.$refs.backtop.style.bottom = "-1rem"
+                this.$refs.backtop.style.bottom = "-3rem"
             }
         },
         backtop () {
@@ -52,7 +52,7 @@ export default {
         border-radius: 1.5rem;
         background: rgba(0, 0, 0, .4);
         color: #fff;
-        bottom: -1rem;
+        bottom: -3rem;
         right: 2.5rem;
         text-align: center;
         line-height: 3rem;

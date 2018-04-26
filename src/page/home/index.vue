@@ -88,21 +88,23 @@
             </div>
             <ul class="rec_cont">
                 <li>
-                    <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
+                    <router-link :to="{name:'details', params:{ info: '123' }}">
+                        <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
+                        <div class="content">
+                            <div class="name">美好一天早餐店</div>
+                            <div class="grade">
+                                <div class="stars">
+                                    <i class="iconfont icon-xing_f"></i> 
+                                    <i class="iconfont icon-xing_f"></i> 
+                                    <i class="iconfont icon-xing_l"></i> 
+                                    <i class="iconfont icon-xing_l"></i> 
+                                    <i class="iconfont icon-xing_l"></i> 
+                                </div>
+                                <div class="money">人均 ￥ 20</div>
                             </div>
-                            <div class="money">人均 ￥ 20</div>
+                            <div class="site">北京市王府井大街</div>
                         </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
                     <div class="img"><img src="http://clubimg.dbankcdn.com/data/attachment/forum/201610/16/225213glupub5u6u17alkx.jpg" alt="" /></div>
@@ -383,56 +385,58 @@ export default {
             }
             .rec_cont{
                 flex: 1;
-                
                 li{
-                margin-bottom: 1rem;
-                overflow: hidden;
-                border-bottom: solid 1px #eee;
-                padding: 0 0.8rem 0.8rem 0.8rem;
-                .img{
-                    float: left;
-                    width: 5.1rem;
-                    img{
-                        width: 5rem;
-                        height: 5rem;
+                    margin-bottom: 1rem;
+                    overflow: hidden;
+                    border-bottom: solid 1px #eee;
+                    padding: 0 0.8rem 0.8rem 0.8rem;
+                    a{
+                        overflow: hidden;
                     }
-                }
-                .content{
-                    float: left;
-                    padding: 0 0.8rem;
-                    .name{
-                        font-size: 1.4rem;
-                        font-family: '楷体';
-                        height: 1.8rem;
-                        line-height: 1.8rem;
-                        color: #333;
-                        font-weight: 400
-                    }
-                    .grade{
-                        height: 1.4rem;
-                        line-height: 1.4rem;
-                        .stars{
-                            float: left;
-                            letter-spacing: -0.2rem;
-                            color: #ff9800;
-                            font-size: 1.2rem !important ;
-                            height: 1.2rem;
-                            line-height: 1.4rem;
+                    .img{
+                        float: left;
+                        width: 5.1rem;
+                        img{
+                            width: 5rem;
+                            height: 5rem;
                         }
-                        .money{
+                    }
+                    .content{
+                        float: left;
+                        padding: 0 0.8rem;
+                        .name{
+                            font-size: 1.4rem;
+                            font-family: '楷体';
+                            height: 1.8rem;
+                            line-height: 1.8rem;
+                            color: #333;
+                            font-weight: 400
+                        }
+                        .grade{
                             height: 1.4rem;
-                            line-height: 1.6rem;
-                            float: left;
-                            color: #aaa;
-                            font-size: 0.8rem;
-                            margin-left: 1.5rem;
+                            line-height: 1.4rem;
+                            .stars{
+                                float: left;
+                                letter-spacing: -0.2rem;
+                                color: #ff9800;
+                                font-size: 1.2rem !important ;
+                                height: 1.2rem;
+                                line-height: 1.4rem;
+                            }
+                            .money{
+                                height: 1.4rem;
+                                line-height: 1.6rem;
+                                float: left;
+                                color: #aaa;
+                                font-size: 0.8rem;
+                                margin-left: 1.5rem;
+                            }
                         }
-                    }
-                    .site{
-                        line-height: 1.8rem;
-                        color: #888;
-                    }
-                } 
+                        .site{
+                            line-height: 1.8rem;
+                            color: #888;
+                        }
+                    } 
                 }
             }
         }

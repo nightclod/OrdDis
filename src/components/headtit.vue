@@ -2,7 +2,7 @@
     <div class="head">
         <i class="iconfont icon-fanhui return" onClick="javascript :history.back(-1);"></i>
         <div class="tit">{{tit}}</div>
-        <div class="info"></div>
+        <router-link :to="name" class="info">{{link}}</router-link>
         <div class="xian"></div>
     </div>
 </template>
@@ -12,11 +12,12 @@
 export default {
     data () {
         return {
-            
-         }
+        }
     },
     props: {
-        tit: String
+        tit: String,
+        link: String,
+        name: String
     },
     mounted () {
     },
@@ -54,6 +55,7 @@ export default {
             font-weight: 700;
         }
         .info{
+            color: #333;
             float: left;
             width: 20%;
             height: 2.6rem;

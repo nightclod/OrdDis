@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/page/home'
 import List from '@/page/list'
+import Details from '@/page/details'
 import Shop from '@/page/shop'
 import Mine from '@/page/mine'
 import Login from '@/page/login'
@@ -23,6 +24,11 @@ export default new Router({
             path: '/list',
             name: 'list',
             component: List
+        },
+        {
+            path: '/details',
+            name: 'details',
+            component: Details
         },
         {
             path: '/shop',

@@ -13,21 +13,28 @@
                     <i class="iconfont icon-webicon213"></i>
                     <b>{{phone}}</b>
                 </div>
-                <div class="list part">
+                <div class="list part" @click="amName">
                     <span>名字</span>
                     <i class="iconfont icon-webicon213"></i>
                     <b>{{name}}</b>
                 </div>
-                <div class="list">
+                <div class="list" @click="sexstart = !sexstart">
                     <span>性别</span>
                     <i class="iconfont icon-webicon213"></i>
                     <b>{{sex}}</b>
                 </div>
-                <div class="list">
+                <div class="list" @click="openPicker">
                     <span>生日</span>
                     <i class="iconfont icon-webicon213"></i>
-                    <b>{{birthday}}</b>
+                    <b>{{birthday | formatdate}}</b>
                 </div>
+                <mt-popup v-model="sexstart" position="bottom" style="width:100%">  
+                    <mt-picker :slots="slots" @change="onValuesChange" :visible-item-count="3" style="width:100%"></mt-picker>  
+                </mt-popup>
+                <mt-datetime-picker ref="picker" type="date" v-model="birthday" :startDate="startDate" :endDate="endDate" >
+                </mt-datetime-picker>
+
+
             </div>
         </div>
     </div>
@@ -46,7 +53,13 @@ export default {
             phone: "17865923008",
             Nphone: "",
             sex: "男",
-            birthday: "2015-10-10"
+            sexstart: false,
+            startDate : new Date("1960/1/1"),
+            birthday:  new Date("2000/1/1"),
+            endDate : new Date(),
+
+            birstart: false,
+            slots:[{values: ['男', '女']}] 
         }
     },
     mounted () {
@@ -57,6 +70,7 @@ export default {
             if( !Base.getCookie("ordDisCooike") ){
                 this.$router.push({path:'/login'});
             }else{
+                
             }
         },
         amPhone() {
@@ -65,16 +79,50 @@ export default {
                 confirmButtonText:'提交',
                 inputType:"number",
                 inputValidator:function(v){
-                    if(v == null){ return true; }
+                    if(v == null){ 
+                        return true; 
+                    }
                     return /^[1][3,4,5,7,8][0-9]{9}$/.test(v);
                 },
                 inputErrorMessage:'请输入正确的手机号',
-            }).then((val) => {  
-                console.info('confirm,value is' + val.value)  ;
+            }).then((val) => {
                 that.Nphone = val.value;
+                that.phone = val.value;
             }, () => {  
                 
             }) 
+        },
+        amName () {
+            var that = this;
+            MessageBox.prompt ('请输入新的名字',{
+                confirmButtonText:'提交',
+                inputType:"text",
+                inputValidator:function(v){
+                    if(v == null){ 
+                        return true;
+                    }
+                    return /^[0-9A-Za-z\u4E00-\u9FA5]{6,10}$/.test(v);
+                },
+                inputErrorMessage:'由6至10位的汉字、数字、字母组成',
+            }).then((val) => {  
+                that.name = val.value;
+                
+            }, () => {
+                
+            }) 
+        },
+        onValuesChange(picker, values) { 
+            this.sex = values[0];
+        },
+        openPicker() {
+            this.$refs.picker.open();
+        }
+
+    },
+    filters: {
+        formatdate(time){
+            var str = (time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate())
+            return str;
         }
     },
     components: { headTit }
