@@ -87,131 +87,27 @@
                 —— · &nbsp; 推荐商家 &nbsp; · ——
             </div>
             <ul class="rec_cont">
-                <li>
-                    <router-link :to="{name:'details', params:{ info: '123' }}">
-                        <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
+                <li v-for="(item) in itemDetail" :key="item.storeId">
+                    <!-- <router-link :to="{name:'details', params:{ num: '123' }}"> -->
+                    <router-link :to="{path:'/details/' + item.storeId }">
+                        <div class="img"><img :src='item.imgUrl' alt="" /></div>
                         <div class="content">
-                            <div class="name">美好一天早餐店</div>
+                            <div class="name">{{item.name}}</div>
                             <div class="grade">
                                 <div class="stars">
-                                    <i class="iconfont icon-xing_f"></i> 
-                                    <i class="iconfont icon-xing_f"></i> 
-                                    <i class="iconfont icon-xing_l"></i> 
-                                    <i class="iconfont icon-xing_l"></i> 
-                                    <i class="iconfont icon-xing_l"></i> 
+                                    <i class="iconfont icon-xing_f" v-for="n in item.stars"></i>
+                                    <i class="iconfont icon-xing_l" v-for="s in (5 - item.stars)"></i> 
                                 </div>
-                                <div class="money">人均 ￥ 20</div>
+                                <div class="money">人均 ￥ {{item.money}}</div>
                             </div>
-                            <div class="site">北京市王府井大街</div>
+                            <div class="site">{{item.site}}</div>
                         </div>
                     </router-link>
-                </li>
-                <li>
-                    <div class="img"><img src="http://clubimg.dbankcdn.com/data/attachment/forum/201610/16/225213glupub5u6u17alkx.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                            </div>
-                            <div class="money">人均 ￥ 20</div>
-                        </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://clubimg.dbankcdn.com/data/attachment/forum/201610/16/225215dmzwubjlphwpv9mq.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                            </div>
-                            <div class="money">人均 ￥ 20</div>
-                        </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                            </div>
-                            <div class="money">人均 ￥ 20</div>
-                        </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                            </div>
-                            <div class="money">人均 ￥ 20</div>
-                        </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                            </div>
-                            <div class="money">人均 ￥ 20</div>
-                        </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">美好一天早餐店</div>
-                        <div class="grade">
-                            <div class="stars">
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_f"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                                <i class="iconfont icon-xing_l"></i> 
-                            </div>
-                            <div class="money">人均 ￥ 20</div>
-                        </div>
-                        <div class="site">北京市王府井大街</div>
-                    </div>
                 </li>
             </ul>
         </div>
         <backTop />
-        <footView />
+        <footView :dom="'app'"></footView>
     </div>
 </template>
 
@@ -219,19 +115,30 @@
 import footView from "../../components/footer.vue";
 import backTop from "../../components/backtop.vue";
 import Base from "../../components/base.js";
+import { mapState, mapActions } from 'vuex';
 export default {
     name: 'home',
     data () {
         return {
         }
     },
+    computed: mapState([
+  		'itemDetail'
+	]),
     mounted () {
         this.init();
     },
     methods:{
+        ...mapActions([
+  			'recommendData'
+  		]),
         init () {
-            if( !Base.getCookie("ordDisCooike") ){
+            var info = Base.getCookie(true);
+            if( !info ){
                 this.$router.push({path:'/login'});
+            }
+            if(info !== true){
+                this.recommendData(info.account);
             }
             document.getElementById("app").scrollTop = 0;
             document.getElementById("app").addEventListener('scroll', this.handlScroll);

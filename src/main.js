@@ -5,27 +5,18 @@ import App from './App'
 import router from './router'
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
+import store from './store'
 
 
 Vue.config.productionTip = false
 Vue.use(Mint);
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
-
-
-// document.addEventListener('deviceready', function() {
-//     new Vue({
-//         el: '#app',
-//         router,
-//         store,
-//         template: '<App/>',
-//         components: { App }
-//     })
-//     window.navigator.splashscreen.hide()
-// }, false);

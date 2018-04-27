@@ -2,7 +2,7 @@
     <div class="body" ref="center">
         <headTit tit="" link="购物车" name="shop"></headTit>
         <div class="topbg"></div>
-        <div class="center">
+        <div class="center" id="cent">
             <div class="top">
                 <img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" />
                 <div class="info">
@@ -82,14 +82,13 @@
                 </li>
             </ul>
         </div>
-            
         <backTop />
     </div>
 </template>
 
 <script>
 import headTit from "../../components/headtit.vue";
-import backTop from "../../components/backtop.vue";
+import backTop from "../../components/backtopD.vue";
 import Base from "../../components/base.js";
 export default {
     name: 'home',
@@ -102,9 +101,10 @@ export default {
     },
     methods:{
         init () {
-            if( !Base.getCookie("ordDisCooike") ){
+            if( !Base.getCookie() ){
                 this.$router.push({path:'/login'});
             }
+            console.log(this.$router.history.current.params.num);
             document.getElementById("app").scrollTop = 0;
         }
     },

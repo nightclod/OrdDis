@@ -1,5 +1,4 @@
 var Base = {
-    cooInfo : {},
     loopCookie: function(cd){
         var arrCookie = document.cookie.split("; ");
         for(var i = 0; i < arrCookie.length; i ++){
@@ -10,19 +9,17 @@ var Base = {
             }
         }
     },
-    getCookie : function(){
+    getCookie : function(infoStart){
         var sty = false,
             that = this;
         this.loopCookie(function(info){
-            that.cooInfo= JSON.parse(info);
-            sty = true;
+            sty = infoStart ? JSON.parse(info) : true;
         });
         return sty;
     },
     setCookie: function(data){
         var exp = new Date();
         exp.setTime(exp.getTime() + 60 * 60 * 1000);  
-        this.cooInfo = data;
         document.cookie = "ordDisCookie=" + JSON.stringify(data) + ";expires=" +  exp.toGMTString() + ";path=/";
     },
     updateCookie : function(data){

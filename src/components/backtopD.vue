@@ -9,16 +9,15 @@
 export default {
     data () {
         return { 
-            dom: "app"
          }
     },
     mounted () {
-        document.getElementById(this.dom).addEventListener('scroll', this.handleScroll);
+        document.getElementById("cent").addEventListener('scroll', this.handleScroll);
     },
     methods:{
         handleScroll () {
             var that = this;
-            var scrollTop = document.getElementById(that.dom).scrollTop;
+            var scrollTop = document.getElementById("cent").scrollTop;
             if(scrollTop >= 250 ){
                 that.$refs.backtop.style.bottom = "5rem"
             }else{
@@ -26,15 +25,14 @@ export default {
             }
         },
         backtop () {
-            var that = this;
             var timer = setInterval(function(){
-                var currentPosition = document.getElementById(that.dom).scrollTop;
+                var currentPosition = document.getElementById("cent").scrollTop;
                 currentPosition = parseInt(currentPosition / 2);
                 if (currentPosition > 0) {
-                    document.getElementById(that.dom).scrollTo(0, currentPosition);
+                    document.getElementById("cent").scrollTo(0, currentPosition);
                 }
                 else {
-                    document.getElementById(that.dom).scrollTo(0, 0);
+                    document.getElementById("cent").scrollTo(0, 0);
                     clearInterval(timer);
                     timer = null;
                 }
@@ -42,10 +40,9 @@ export default {
         }
     },
     destroyed () {
-        if(document.getElementById(this.dom)){
-            document.getElementById(this.dom).removeEventListener('scroll', this.handleScroll);
+        if(document.getElementById("cent")){
+            document.getElementById("cent").removeEventListener('scroll', this.handleScroll);
         }
-        
     },
 }
 </script>

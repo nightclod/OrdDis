@@ -79,7 +79,25 @@ export default {
                 alert("请输入密码");
             }else{
                 if(this.name === "123456" && this.password === "123456789"){
-                    Base.setCookie({account:"123456"});
+
+
+
+
+
+
+
+
+                    Base.setCookie({
+                        account: "427123",
+                        name: "123456",
+                        phone: "17865923007"
+                    });
+
+
+
+
+
+
                     this.$router.push({path:'/'});
                 }else{
                     alert("账号密码不对");
