@@ -1,80 +1,32 @@
 <template>
     <div class="body" ref="center">
         <headTit tit="" link="购物车" name="shop"></headTit>
-        <div class="topbg"></div>
-        <div class="center" id="cent">
+        <div class="topbg" :style="{backgroundImage: 'url('+ detailsData.imgUrl +')'}"></div>
+        <div class="center" id="cent" >
             <div class="top">
-                <img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" />
+                <img :src="detailsData.imgUrl" alt="" />
                 <div class="info">
-                    <div class="name">美好一天早餐店</div>
+                    <div class="name">{{detailsData.name}}</div>
                     <div class="grade">
                         <div class="stars">
-                            <i class="iconfont icon-xing_f"></i> 
-                            <i class="iconfont icon-xing_f"></i> 
-                            <i class="iconfont icon-xing_l"></i> 
-                            <i class="iconfont icon-xing_l"></i> 
-                            <i class="iconfont icon-xing_l"></i> 
+                            <i class="iconfont icon-xing_f" v-for="m in (detailsData.stars || 0)"></i>
+                            <i class="iconfont icon-xing_l" v-for="k in (5 - (detailsData.stars || 0))"></i>
                         </div>
                     </div>
-                    <div class="site">北京市王府井大街</div>
+                    <div class="site">{{ detailsData.site }}</div>
                 </div>
             </div>
             <ul class="cont">
-                <li>
-                    <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
+                <li v-for="(item) in detailsData.list">
+                    <div class="img"><img :src='item.imgUrl' alt="" /></div>
                     <div class="content">
-                        <div class="name">小笼包</div>
-                        <div class="deat">好吃好吃好吃好吃。。。</div>
+                        <div class="name">{{item.name}}</div>
+                        <div class="deat">{{item.deat}}</div>
                         <div class="site">
-                            <div class="money">￥123</div>
+                            <div class="money">￥{{item.money}}</div>
                             <div class="modif">
                                 <button class="minus">-</button>
-                                <div class="number">5</div>
-                                <button class="add">+</button>  
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">小笼包</div>
-                        <div class="deat">好吃好吃好吃好吃。。。</div>
-                        <div class="site">
-                            <div class="money">￥123</div>
-                            <div class="modif">
-                                <button class="minus">-</button>
-                                <div class="number">5</div>
-                                <button class="add">+</button>  
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">小笼包</div>
-                        <div class="deat">好吃好吃好吃好吃。。。</div>
-                        <div class="site">
-                            <div class="money">￥123</div>
-                            <div class="modif">
-                                <button class="minus">-</button>
-                                <div class="number">5</div>
-                                <button class="add">+</button>  
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><img src="http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg" alt="" /></div>
-                    <div class="content">
-                        <div class="name">小笼包</div>
-                        <div class="deat">好吃好吃好吃好吃。。。</div>
-                        <div class="site">
-                            <div class="money">￥123</div>
-                            <div class="modif">
-                                <button class="minus">-</button>
-                                <div class="number">5</div>
+                                <div class="number">{{item.number}}</div>
                                 <button class="add">+</button>  
                             </div>
                         </div>
@@ -90,20 +42,34 @@
 import headTit from "../../components/headtit.vue";
 import backTop from "../../components/backtopD.vue";
 import Base from "../../components/base.js";
+import { mapState, mapActions } from 'vuex';
 export default {
     name: 'home',
     data () {
         return {
+            bgImg : ""
         }
     },
+    computed: mapState([
+  		'detailsData'
+    ]),
     mounted () {
         this.init();
     },
     methods:{
+        ...mapActions([
+  			'getDatailsData'
+  		]),
         init () {
-            if( !Base.getCookie() ){
+            var info = Base.getCookie(true);
+            if( !info ){
                 this.$router.push({path:'/login'});
             }
+            this.getDatailsData({
+                id : info.account, 
+                num : this.$router.history.current.params.num
+            });
+           
             console.log(this.$router.history.current.params.num);
             document.getElementById("app").scrollTop = 0;
         }
@@ -127,9 +93,9 @@ export default {
             z-index: -1;
             height: 6rem;
             width: 100%;
-            background:url(http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg) no-repeat center center;
+            background: no-repeat center center;
+            // background-image: url(this.datailsData.imgUrl);
             background-size: cover;
-            filter: url(http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg);
             -webkit-filter: blur(8px);
             -moz-filter: blur(8px);
             -ms-filter: blur(8px);
@@ -183,7 +149,6 @@ export default {
             }
             .cont{
                 padding-top: 1rem;
-                height: 100rem;
                 li{
                     margin-bottom: 1rem;
                     overflow: hidden;

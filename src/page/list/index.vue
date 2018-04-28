@@ -63,192 +63,21 @@
                 <div class="mask"></div>
             </div>
         	<ul class="rec_cont">
-        		<li>
-        			<div class="img"><img src="http://img.juimg.com/tuku/yulantu/130121/240385-1301210P05616.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">风味牛肉</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 50</div>
-        				</div>
-        				<div class="site">济南历下区</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://58pic.ooopic.com/58pic/19/21/03/5684e1c5077fd.jpg!/format/webp" alt="" /></div>
-        			<div class="content">
-        				<div class="name">乐乐蛋糕店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 40</div>
-        				</div>
-        				<div class="site">北京市大栅栏</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.zcool.cn/community/019e025859ddeca801219c773a5821.jpg@2o.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.zcool.cn/community/010ce1564a90306ac7251c9422c660.jpg@1280w_1l_2o_100sh.webp" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.taopic.com/uploads/allimg/120917/219077-12091G11U422.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
-        		</li>
-                <li>
-        			<div class="img"><img src="http://img.zcool.cn/community/019e025859ddeca801219c773a5821.jpg@2o.jpg" alt="" /></div>
-        			<div class="content">
-        				<div class="name">零食店</div>
-        				<div class="grade">
-        					<div class="stars">
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_f"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        						<i class="iconfont icon-xing_l"></i> 
-        					</div>
-        					<div class="money">人均 ￥ 20</div>
-        				</div>
-        				<div class="site">北京市王府井大街</div>
-        			</div>
+        		<li v-for="(item) in itemData ">
+                    <router-link :to="{path:'/details/' + item.storeId }">
+                        <div class="img"><img :src='item.imgUrl' alt="" /></div>
+                        <div class="content">
+                            <div class="name">{{item.name}}</div>
+                            <div class="grade">
+                                <div class="stars">
+                                    <i class="iconfont icon-xing_f" v-for="n in item.stars"></i>
+                                    <i class="iconfont icon-xing_l" v-for="s in (5 - item.stars)"></i> 
+                                </div>
+                                <div class="money">人均 ￥ {{item.money}}</div>
+                            </div>
+                            <div class="site">{{item.site}}</div>
+                        </div>
+                    </router-link>
         		</li>
         	</ul>
         </div>
@@ -261,19 +90,30 @@
 import footView from "../../components/footer.vue";
 import backTop from "../../components/backtop.vue";
 import Base from "../../components/base.js";
+import { mapState, mapActions } from 'vuex';
 export default {
     name: 'home',
     data () {
         return {
         }
     },
+    computed: mapState([
+  		'itemData'
+	]),
     mounted () {
         this.init();
     },
     methods:{
+        ...mapActions([
+  			'listData'
+  		]),
         init () {
-            if( !Base.getCookie("ordDisCooike") ){
+            var info = Base.getCookie(true);
+            if( !info ){
                 this.$router.push({path:'/login'});
+            }
+            if(info !== true){
+                this.listData(info.account);
             }
             document.getElementById("app").scrollTop = 0;
             this.quer(this.$route.params.info);
@@ -378,7 +218,6 @@ export default {
         	}
         	.rec_cont{
                 flex: 1;
-                padding-bottom: 2.3rem;
                 li{
                    margin-bottom: 1rem;
                    overflow: hidden;
@@ -429,22 +268,6 @@ export default {
                    } 
                 }
         	}
-        }
-        .backtop{
-            position: fixed;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1.5rem;
-            background: rgba(0, 0, 0, .4);
-            color: #fff;
-            bottom: -1rem;
-            right: 2.5rem;
-            text-align: center;
-            line-height: 3rem;
-            transition:.2s;
-            i{
-                font-size: 1.8rem;
-            }
         }
     }
 </style>

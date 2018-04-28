@@ -87,8 +87,7 @@
                 —— · &nbsp; 推荐商家 &nbsp; · ——
             </div>
             <ul class="rec_cont">
-                <li v-for="(item) in itemDetail" :key="item.storeId">
-                    <!-- <router-link :to="{name:'details', params:{ num: '123' }}"> -->
+                <li v-for="(item) in itemData">
                     <router-link :to="{path:'/details/' + item.storeId }">
                         <div class="img"><img :src='item.imgUrl' alt="" /></div>
                         <div class="content">
@@ -123,14 +122,14 @@ export default {
         }
     },
     computed: mapState([
-  		'itemDetail'
+  		'itemData'
 	]),
     mounted () {
         this.init();
     },
     methods:{
         ...mapActions([
-  			'recommendData'
+  			'recommendListData'
   		]),
         init () {
             var info = Base.getCookie(true);
@@ -138,7 +137,7 @@ export default {
                 this.$router.push({path:'/login'});
             }
             if(info !== true){
-                this.recommendData(info.account);
+                this.recommendListData(info.account);
             }
             document.getElementById("app").scrollTop = 0;
             document.getElementById("app").addEventListener('scroll', this.handlScroll);
