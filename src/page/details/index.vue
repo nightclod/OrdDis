@@ -25,9 +25,9 @@
                         <div class="site">
                             <div class="money">￥{{item.money}}</div>
                             <div class="modif">
-                                <button class="minus">-</button>
+                                <button class="minus" @click="minusNum(item.id)"><i class="iconfont icon-subtract"></i></button>
                                 <div class="number">{{item.number}}</div>
-                                <button class="add">+</button>  
+                                <button class="add" @click="addNum(item.id)"><i class="iconfont icon-add"></i></button>  
                             </div>
                         </div>
                     </div>
@@ -35,6 +35,10 @@
             </ul>
         </div>
         <backTop />
+        <div class="totality">
+            <div class="info"></div>
+            <button>添加到购物车</button>
+        </div>
     </div>
 </template>
 
@@ -47,7 +51,8 @@ export default {
     name: 'home',
     data () {
         return {
-            bgImg : ""
+            bgImg : "",
+            shopData : {}
         }
     },
     computed: mapState([
@@ -72,6 +77,12 @@ export default {
            
             console.log(this.$router.history.current.params.num);
             document.getElementById("app").scrollTop = 0;
+        },
+        minusNum (id) {
+            console.log(id);
+        },
+        addNum (id) {
+            console.log(id);
         }
     },
     destroyed () {
@@ -104,6 +115,7 @@ export default {
         .center{
             height: 100%;
             overflow: auto;
+            padding-bottom: 3rem;
             .top{
                 position: relative;
                 padding-top: 6.5rem;
@@ -187,11 +199,11 @@ export default {
                                 height: 3rem;
                                 color: #f00;
                                 font-size: 1.2rem;
+                                width: 5rem;
                             }
                             .modif{
                                 float: left;
                                 height: 3rem;
-                                margin-left: 4rem;
                                 width: 8rem;
                                 button{
                                     display: block;
@@ -203,12 +215,16 @@ export default {
                                     border: none;
                                     background:rgba(255, 152, 0, 0.8);
                                     color: #fff;
+                                    padding: 0;
+                                    text-align: center;
                                 }
                                 .number{
                                     float: left;
                                     font-size: 1.1rem;
-                                    padding:0 1rem;
+                                    padding:0 .5rem;
                                     color: #333;
+                                    width: 3rem;
+                                    text-align: center;
                                 }
                             }
                         }
@@ -216,6 +232,32 @@ export default {
                 }
             }
         }
-            
+        .totality{
+            position: fixed;
+            width: 100%;
+            height: 3.5rem;
+            bottom: 0;
+            background-color: #efefef;
+            z-index: 3;
+            .info{
+                display: block;
+                float: left;
+            }
+            button{
+                display: block;
+                float: right;
+                height: 2rem;
+                width: 6.5rem;
+                background: #4caf50;
+                border-radius: .5rem;
+                border: none;
+                line-height: 2rem;
+                font-size: .8rem;
+                color: #fff;
+                text-align: center;
+                margin-top: .8rem;
+                margin-right: 1rem;
+            }
+        }  
     }
 </style>

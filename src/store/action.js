@@ -104,7 +104,7 @@ export default {
 		if(info.id == "427123" && info.num == "5"){
 			data = {
 				storeId: 5,
-				imgUrl: "http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg",
+				imgUrl: "http://clubimg.dbankcdn.com/data/attachment/forum/201610/16/225213glupub5u6u17alkx.jpg",
 				name: "面包店",
 				stars: 2,
 				site: "北京市王府井大街",
@@ -124,6 +124,27 @@ export default {
 					number: "0"
 				},{
 					id: 3,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					name: "面条",
+					deat: "不好吃好吃好吃好吃。。。---",
+					money: "13",
+					number: "0"
+				},{
+					id: 4,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					name: "面条",
+					deat: "不好吃好吃好吃好吃。。。---",
+					money: "13",
+					number: "0"
+				},{
+					id: 5,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					name: "面条",
+					deat: "不好吃好吃好吃好吃。。。---",
+					money: "13",
+					number: "0"
+				},{
+					id: 6,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",

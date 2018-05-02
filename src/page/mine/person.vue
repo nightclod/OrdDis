@@ -1,6 +1,6 @@
 <template>
     <div class="body">
-        <headTit tit="修改信息"></headTit>
+        <headTit tit="修改信息" ></headTit>
         <div class="cent">
             <div class="centUl">
                 <div class="list part head">
@@ -33,8 +33,6 @@
                 </mt-popup>
                 <mt-datetime-picker ref="picker" type="date" v-model="birthday" :startDate="startDate" :endDate="endDate" >
                 </mt-datetime-picker>
-
-
             </div>
         </div>
     </div>
@@ -57,7 +55,6 @@ export default {
             startDate : new Date("1960/1/1"),
             birthday:  new Date("2000/1/1"),
             endDate : new Date(),
-
             birstart: false,
             slots:[{values: ['男', '女']}] 
         }

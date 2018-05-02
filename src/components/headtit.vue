@@ -1,8 +1,8 @@
 <template>
     <div class="head">
         <i class="iconfont icon-fanhui return" onClick="javascript :history.back(-1);"></i>
-        <div class="tit">{{tit}}</div>
-        <router-link :to="name" class="info">{{link}}</router-link>
+        <div class="tit">{{tit || ""}}</div>
+        <router-link :to="name || ''" class="info">{{link || ""}}</router-link>
         <div class="xian"></div>
     </div>
 </template>
@@ -33,11 +33,13 @@ export default {
         width: 100%;
         height: 2.6rem;
         top: 0;
-        background-color: rgba(0,0,0,0);
+        // background-color: rgba(255,255,255,0.5);
+        background-color: rgba(0,0,0,0.4);
         z-index: 2;
         line-height: 2.6rem;
         text-align: center;
-        color: #333;
+        color: #fff;
+        opacity: .8  ;
         .return{
             display: block;
             float: left;
@@ -51,11 +53,10 @@ export default {
             height: 2.6rem;
             padding-left: 10%;
             font-size: 1.2rem;
-            font-family: '楷体';
-            font-weight: 700;
+            font-family: '楷体'; 
         }
         .info{
-            color: #333;
+            color: #fff;
             float: left;
             width: 20%;
             height: 2.6rem;
@@ -69,3 +70,4 @@ export default {
         }
     }
 </style>
+ 
