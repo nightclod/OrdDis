@@ -1,8 +1,8 @@
 <template>
-    <div class="body" ref="center">
+    <div class="body" ref="center" >
         <headTit tit="" link="购物车" name="shop"></headTit>
         <div class="topbg" :style="{backgroundImage: 'url('+ detailsData.imgUrl +')'}"></div>
-        <div class="center" id="cent" >
+        <div class="center" id="cent" v-show="pageShow">
             <div class="top">
                 <img :src="detailsData.imgUrl" alt="" />
                 <div class="info">
@@ -25,19 +25,42 @@
                         <div class="site">
                             <div class="money">￥{{item.money}}</div>
                             <div class="modif">
-                                <button class="minus" @click="minusNum(item.id)"><i class="iconfont icon-subtract"></i></button>
+                                <button class="minus" @click="minusNum(item.id, item.number)"><i class="iconfont icon-subtract"></i></button>
                                 <div class="number">{{item.number}}</div>
-                                <button class="add" @click="addNum(item.id)"><i class="iconfont icon-add"></i></button>  
+                                <button class="add" @click="addNum(item.id, item.number)"><i class="iconfont icon-add"></i></button>  
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
+            <div class="commentHead" @click="commentInfo">
+                <span>评价</span>
+                <i class="iconfont icon-icon_on_the_top" ref="comment"></i>
+            </div>
+            <ul class="comment" v-show="commentShow">
+                <li v-for="(item) in commentData">
+                    <div class="name">
+                        <img :src="item.img" alt="">
+                        <div class="info">
+                            <h4>{{item.name}}</h4>
+                            <div class="comment_stars">
+                                <i class="iconfont icon-xing_f" v-for="m in item.stars"></i>
+                                <i class="iconfont icon-xing_l" v-for="k in (5 - item.stars)"></i>
+                            </div>
+                        </div>
+                        <div class="data">{{item.date | formatdate}}</div>
+                    </div>
+                    <p>{{item.info}}</p>
+                </li>
+            </ul>
         </div>
         <backTop />
         <div class="totality">
-            <div class="info"></div>
-            <button>添加到购物车</button>
+            <div class="info">
+                <span>数量：{{totaNum}}</span><br/>
+                <span>总额：<b>￥{{totaMoney}}</b></span>
+            </div>
+            <button @click="addShop">添加到购物车</button>
         </div>
     </div>
 </template>
@@ -51,22 +74,27 @@ export default {
     name: 'home',
     data () {
         return {
-            bgImg : "",
-            shopData : {}
+            pageShow: false,
+            totaNum : 0,
+            totaMoney : 0,
+            commentShow: false
         }
     },
     computed: mapState([
-  		'detailsData'
+        'detailsData',
+        'commentData'  
     ]),
     mounted () {
         this.init();
     },
     methods:{
         ...mapActions([
-  			'getDatailsData'
+            'getDatailsData',
+            'getcommentData'
   		]),
         init () {
-            var info = Base.getCookie(true);
+            var info = Base.getCookie(true),
+                that = this;
             if( !info ){
                 this.$router.push({path:'/login'});
             }
@@ -74,18 +102,106 @@ export default {
                 id : info.account, 
                 num : this.$router.history.current.params.num
             });
-           
-            console.log(this.$router.history.current.params.num);
-            document.getElementById("app").scrollTop = 0;
+             document.getElementById("app").scrollTop = 0;
         },
-        minusNum (id) {
-            console.log(id);
+        pageInit () {
+            var that = this;
+            for(var i = 0; i < that.detailsData.list.length; i ++){
+                that.totaNum += that.detailsData.list[i].number;
+                that.totaMoney += (that.detailsData.list[i].money * that.detailsData.list[i].number)
+            }
+            this.getcommentData(
+                this.$router.history.current.params.num
+            );
         },
-        addNum (id) {
-            console.log(id);
+        minusNum (id, num) {
+            var that = this;
+            if(num < 0){
+                for(var i = 0; i < that.detailsData.list.length; i ++){
+                    if(that.detailsData.list[i].id === id){
+                        that.detailsData.list[i].number = 0;
+                    } 
+                }
+            }else if(num !== 0){
+                for(var i = 0; i < that.detailsData.list.length; i ++){
+                    if(that.detailsData.list[i].id === id){
+                        that.detailsData.list[i].number--;
+                        if(that.totaNum > 0){
+                            that.totaNum --;
+                            that.totaMoney -= that.detailsData.list[i].money
+                        }
+                    } 
+                }
+                
+            }
+        },
+        addNum (id, num) {
+            var that = this;
+            if(num < 0){
+                for(var i = 0; i < that.detailsData.list.length; i ++){
+                    if(that.detailsData.list[i].id === id){
+                        that.detailsData.list[i].number = 0;
+                    } 
+                }
+            }else{
+                for(var i = 0; i < that.detailsData.list.length; i ++){
+                    if(that.detailsData.list[i].id === id){
+                        that.detailsData.list[i].number++;
+                        that.totaNum ++;
+                        that.totaMoney += that.detailsData.list[i].money
+                    } 
+                }
+            }
+        },
+        commentInfo () {
+            var that = this;
+            that.commentShow = !that.commentShow;
+            if(that.commentShow){
+                this.$refs.comment.setAttribute("class","iconfont icon-xiangxia");
+            }else{
+                this.$refs.comment.setAttribute("class","iconfont icon-icon_on_the_top");
+            }
+            
+        },
+        addShop () {
+            var that = this,
+                info = {};
+            if(that.detailsData.storeId){
+                info.storeId = that.detailsData.storeId;
+                info.list = [];
+                for(var i = 0; i < that.detailsData.list.length; i ++){
+                    if(that.detailsData.list[i].number > 0){
+                        info.list.push({
+                            id : that.detailsData.list[i].id,
+                            number : that.detailsData.list[i].number
+                        });
+                    }
+                }
+                info.num = that.totaNum;
+                info.money = that.totaMoney;
+            }
+            
+            console.log(info);
         }
     },
-    destroyed () {
+    filters: {
+        formatdate(time){
+            if(time){
+                var str = (time.getFullYear()+'.'+(time.getMonth()+1)+"."+time.getDate())
+                return str;
+            }
+        }
+    },
+    watch : {
+        detailsData (val) {
+            if(val.storeId){
+                this.pageShow = true;
+                this.pageInit();
+            }else{
+                this.pageShow = false;
+            }
+
+        }
     },
     components: { backTop, headTit }
 }
@@ -115,7 +231,7 @@ export default {
         .center{
             height: 100%;
             overflow: auto;
-            padding-bottom: 3rem;
+            padding-bottom: 3.8rem;
             .top{
                 position: relative;
                 padding-top: 6.5rem;
@@ -231,6 +347,74 @@ export default {
                     } 
                 }
             }
+            .commentHead{
+                font-size: 1.3rem;
+                padding-left: .7rem;
+                font-weight: 700;
+                color: #fff;
+                background: #03A9F4; 
+                height: 2.5rem;
+                line-height: 2.5rem;
+                font-family: "楷体";
+                i{
+                    display: block;
+                    float: right;
+                    margin-right: 1rem;
+                    font-size: 1.2rem;
+                     line-height: 2.2rem;
+                }
+            }
+            .comment{
+                li{
+                    min-height: 3rem;
+                    padding: .8rem;
+                    padding-left: 1rem;
+                    border-bottom: solid 1px #efefef;
+                    .name{
+                        height: 3.5rem;
+                        color: #2196f3;
+                        margin-bottom: .5rem;
+                        img{
+                            float: left;
+                            height: 3.4rem;
+                            width: 3.4rem;
+                            border-radius: 1.7rem;
+                        }
+                        .info{
+                            float: left;
+                            margin-left: 1rem;
+                            h4{
+                                height: 1.8rem;
+                                line-height: 1.8rem;
+                                font-size: 1.2rem;
+                                max-width: 15rem;
+                                overflow: hidden;
+                            }
+                            .comment_stars{
+                                height: 1.2rem;
+                                line-height: 1.2rem;
+                                letter-spacing: -0.2rem;
+                                color: #607d8b;
+                                i{
+                                    font-size: .9rem;
+                                }
+                            }
+                        }
+                        .data{
+                            float: right;
+                            font-size: .8rem;
+                            color: #bbb;
+                            margin-top:.5rem;
+                            width: 4.3rem;
+                        }
+                    }
+                    p{
+                        text-indent: 2rem;
+                        color: #666;
+                        font-size: .9rem;
+                    }
+                }
+            }
         }
         .totality{
             position: fixed;
@@ -242,6 +426,13 @@ export default {
             .info{
                 display: block;
                 float: left;
+                padding-top: 0.8rem;
+                padding-left: 1rem;
+                font-size: .9rem;
+                b{
+                    color: #ff5722;
+                    font-weight: 700;
+                }
             }
             button{
                 display: block;

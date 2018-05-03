@@ -94,8 +94,6 @@ export default {
 				money: "20",
 				site: "北京市王府井大街"
 			}]
-		}else{
-			data
 		}
 		commit('LIST_DATA', data);
 	},
@@ -113,43 +111,43 @@ export default {
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "小笼包",
 					deat: "好吃好吃好吃好吃。。。",
-					money: "123",
-					number: "0"
+					money: 123,
+					number: 1
 				},{
 					id: 2,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "汉堡",
 					deat: "好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 13,
+					number: 0
 				},{
 					id: 3,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 13,
+					number: 0
 				},{
 					id: 4,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 13,
+					number: 0
 				},{
 					id: 5,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 13,
+					number: 0
 				},{
 					id: 6,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 13,
+					number: 0
 				}]
 			}
 		}else if(info.id == "427123" && info.num == "2"){
@@ -164,26 +162,46 @@ export default {
 					imgUrl: "http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg",
 					name: "小笼包",
 					deat: "好吃好吃好吃好吃。。。",
-					money: "123",
-					number: "0"
+					money: 123,
+					number: 0
 				},{
 					id: 2,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "汉堡",
 					deat: "好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 13,
+					number: 0
 				},{
 					id: 3,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
-					money: "13",
-					number: "0"
+					money: 15,
+					number: 0
 				}]
 			}
 		}
-		console.log(data, info);
 		commit('GET_DATAILS_DATA', data);
+	},
+	getcommentData({ commit, state }, id){
+		var data = [];
+		if(id == 5){
+			data = [{
+				id : 427123,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "哈撒给",
+				stars : 3,
+				info : "好吃的紧",
+				date : new Date("2018/5/1")
+			},{
+				id : 427124,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "一库",
+				stars : 4,
+				info : "好吃的紧",
+				date : new Date("2000/1/1")
+			}]
+		}
+		commit('GET_COMMENT_DATA', data);
 	}
 }

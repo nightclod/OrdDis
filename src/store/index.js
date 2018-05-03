@@ -8,7 +8,8 @@ Vue.use(Vuex)
 
 const state = {
 	itemData: [],
-	detailsData:{}
+	detailsData:{},
+	commentData:[]
 }
 
 export default new Vuex.Store({
