@@ -158,21 +158,51 @@ export default {
 				stars: 2,
 				site: "北京市王府井大街",
 				list: [{
-					id: 1,
+					id: 7,
 					imgUrl: "http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg",
 					name: "小笼包",
 					deat: "好吃好吃好吃好吃。。。",
 					money: 123,
 					number: 0
 				},{
-					id: 2,
+					id: 8,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "汉堡",
 					deat: "好吃好吃好吃好吃。。。---",
 					money: 13,
 					number: 0
 				},{
-					id: 3,
+					id: 9,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					name: "面条",
+					deat: "不好吃好吃好吃好吃。。。---",
+					money: 15,
+					number: 0
+				}]
+			}
+		}else if(info.id == "427123" && info.num == "6"){
+			data = {
+				storeId: 5,
+				imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name: "面包水店",
+				stars: 2,
+				site: "北京市王府井大街",
+				list: [{
+					id: 10,
+					imgUrl: "http://www.fancai.com//Uploads/MeiShi/2017-08-16/59939b3328d9e.jpg",
+					name: "小笼包",
+					deat: "好吃好吃好吃好吃。。。",
+					money: 123,
+					number: 0
+				},{
+					id: 11,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					name: "汉堡",
+					deat: "好吃好吃好吃好吃。。。---",
+					money: 13,
+					number: 0
+				},{
+					id: 12,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
@@ -200,6 +230,43 @@ export default {
 				stars : 4,
 				info : "好吃的紧",
 				date : new Date("2000/1/1")
+			}]
+		}else if(id == 2){
+			data = [{
+				id : 427123,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "哈撒给",
+				stars : 3,
+				info : "好吃的紧",
+				date : new Date("2018/5/1")
+			},{
+				id : 427124,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "一库",
+				stars : 4,
+				info : "好吃的紧",
+				date : new Date("2000/1/1")
+			},{
+				id : 427125,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "恕瑞玛",
+				stars : 5,
+				info : "好吃的紧23",
+				date : new Date("2000/1/3")
+			},{
+				id : 427126,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "一库",
+				stars : 2,
+				info : "好吃的23432紧",
+				date : new Date("2000/8/1")
+			},{
+				id : 427127,
+				img : "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+				name : "一库",
+				stars : 1,
+				info : "好吃的紧3232",
+				date : new Date("2000/12/1")
 			}]
 		}
 		commit('GET_COMMENT_DATA', data);

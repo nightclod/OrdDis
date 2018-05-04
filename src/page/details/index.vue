@@ -52,6 +52,9 @@
                     </div>
                     <p>{{item.info}}</p>
                 </li>
+                <div v-show="comShowC" class="comShowC">
+                    暂无评价
+                </div>
             </ul>
         </div>
         <backTop />
@@ -77,7 +80,8 @@ export default {
             pageShow: false,
             totaNum : 0,
             totaMoney : 0,
-            commentShow: false
+            commentShow: false,
+            comShowC : true
         }
     },
     computed: mapState([
@@ -161,7 +165,6 @@ export default {
             }else{
                 this.$refs.comment.setAttribute("class","iconfont icon-icon_on_the_top");
             }
-            
         },
         addShop () {
             var that = this,
@@ -179,9 +182,10 @@ export default {
                 }
                 info.num = that.totaNum;
                 info.money = that.totaMoney;
+                if(info.list.length){
+                    console.log("发送请求", info);
+                }
             }
-            
-            console.log(info);
         }
     },
     filters: {
@@ -200,7 +204,13 @@ export default {
             }else{
                 this.pageShow = false;
             }
-
+        },
+        commentData (val) {
+            if(val.length){
+                this.comShowC = false;
+            }else{
+                this.comShowC = true;
+            }
         }
     },
     components: { backTop, headTit }
@@ -414,7 +424,14 @@ export default {
                         font-size: .9rem;
                     }
                 }
-            }
+                .comShowC{
+                    height: 1.5rem;
+                    text-align: center;
+                    color: #666;
+                    font-size: 1.1rem;
+                    line-height: 2rem;
+                }
+            }  
         }
         .totality{
             position: fixed;
