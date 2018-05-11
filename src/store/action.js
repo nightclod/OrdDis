@@ -112,42 +112,48 @@ export default {
 					name: "小笼包",
 					deat: "好吃好吃好吃好吃。。。",
 					money: 123,
-					number: 1
+					number: 1,
+					unit: "个"
 				},{
 					id: 2,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "汉堡",
 					deat: "好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 3,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 4,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 5,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 6,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				}]
 			}
 		}else if(info.id == "427123" && info.num == "2"){
@@ -163,21 +169,24 @@ export default {
 					name: "小笼包",
 					deat: "好吃好吃好吃好吃。。。",
 					money: 123,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 8,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "汉堡",
 					deat: "好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 9,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
 					money: 15,
-					number: 0
+					number: 0,
+					unit: "个"
 				}]
 			}
 		}else if(info.id == "427123" && info.num == "6"){
@@ -193,21 +202,24 @@ export default {
 					name: "小笼包",
 					deat: "好吃好吃好吃好吃。。。",
 					money: 123,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 11,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "汉堡",
 					deat: "好吃好吃好吃好吃。。。---",
 					money: 13,
-					number: 0
+					number: 0,
+					unit: "个"
 				},{
 					id: 12,
 					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
 					name: "面条",
 					deat: "不好吃好吃好吃好吃。。。---",
 					money: 15,
-					number: 0
+					number: 0,
+					unit: "个"
 				}]
 			}
 		}
@@ -270,5 +282,52 @@ export default {
 			}]
 		}
 		commit('GET_COMMENT_DATA', data);
+	},
+	getShopData({ commit, state }, id){
+		var data = [];
+		if(id == 5){
+			data = [{
+				shop: {
+					id: 1,
+					name: "面包店"
+				},
+				product: [{
+					id: 5,
+					name: "汉堡",
+					img: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					num: 3,
+					money: 15,
+					unit: "个"
+				},{
+					id: 6,
+					name: "薯条",
+					img: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					num: 1,
+					money: 15,
+					unit: "包"
+				}]
+			},{
+				shop: {
+					id: 2,
+					name: "零食店"
+				},
+				product: [{
+					id: 7,
+					name: "大葱",
+					img: "https://bbs-fd.zol-img.com.cn/t_s1200x5000/g1/M0B/0E/05/Cg-4jlOtde-Idyg-AAIPr7LlwC4AAOpGwC2CsYAAg_H795.jpg",
+					num: 3,
+					money: 15,
+					unit: "斤"
+				},{
+					id: 8,
+					name: "鸡蛋",
+					img: "https://bbs-fd.zol-img.com.cn/t_s1200x5000/g1/M0B/0E/05/Cg-4jlOtde-Idyg-AAIPr7LlwC4AAOpGwC2CsYAAg_H795.jpg",
+					num: 10,
+					money: 15,
+					unit: "斤"
+				}]
+			}]
+		}
+		commit('GET_SHOP_DATA', data);
 	}
 }

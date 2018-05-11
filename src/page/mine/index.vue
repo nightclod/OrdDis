@@ -19,6 +19,10 @@
                     地址管理
                     <i class="iconfont icon-icon_on_the_right"></i>
                 </router-link>
+                <router-link :to="{name:'person'}" class="list">
+                    订单管理
+                    <i class="iconfont icon-icon_on_the_right"></i>
+                </router-link>
                 <router-link :to="{name:'amend'}" class="list">
                     修改密码
                     <i class="iconfont icon-icon_on_the_right"></i>

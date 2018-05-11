@@ -10,5 +10,8 @@ export default {
 	},
 	['GET_COMMENT_DATA'](state, data) {
 		state.commentData = data
+	},
+	['GET_SHOP_DATA'](state, data) {
+		state.shopData = data
 	}
 }

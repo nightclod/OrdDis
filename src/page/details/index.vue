@@ -23,7 +23,7 @@
                         <div class="name">{{item.name}}</div>
                         <div class="deat">{{item.deat}}</div>
                         <div class="site">
-                            <div class="money">￥{{item.money}}</div>
+                            <div class="money">￥{{item.money}}<span>/{{item.unit}}</span></div>
                             <div class="modif">
                                 <button class="minus" @click="minusNum(item.id, item.number)"><i class="iconfont icon-subtract"></i></button>
                                 <div class="number">{{item.number}}</div>
@@ -169,7 +169,7 @@ export default {
         addShop () {
             var that = this,
                 info = {};
-            if(that.detailsData.storeId){
+            if(that.detailsData.storeId && that.detailsData.list.length){
                 info.storeId = that.detailsData.storeId;
                 info.list = [];
                 for(var i = 0; i < that.detailsData.list.length; i ++){
@@ -182,9 +182,7 @@ export default {
                 }
                 info.num = that.totaNum;
                 info.money = that.totaMoney;
-                if(info.list.length){
-                    console.log("发送请求", info);
-                }
+                console.log("发送请求", info);
             }
         }
     },
@@ -325,7 +323,11 @@ export default {
                                 height: 3rem;
                                 color: #f00;
                                 font-size: 1.2rem;
-                                width: 5rem;
+                                width: 8rem;
+                                span{
+                                    font-size: .7rem;
+                                    color: #FF5722;
+                                }
                             }
                             .modif{
                                 float: left;
