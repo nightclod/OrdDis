@@ -5,7 +5,7 @@
             <li class="store"  v-for="(item) in shopData">
                 <div class="sto_head">
                     <label class="sto_checkAll">
-                        <input type="checkbox" class="mint-checkbox-input" :ref="'itemAllPay' + item.shop.id" @click="itemAllPay(item.shop.id)" />
+                        <input type="checkbox" class="mint-checkbox-input" :ref="'itemAllPay' + item.shop.id" @click="actItemPay(item.shop.id, item.product)" />
                         <span class="mint-checkbox-core"></span>
                     </label>
                      <router-link :to="{path:'/details/' + item.shop.id  }">
@@ -16,22 +16,22 @@
                 <ul class="sto_ul">
                     <li class="sto_item" v-for="(data) in item.product">
                         <label class="item_but">
-                            <input type="checkbox" class="mint-checkbox-input" :ref="data.id" @click="actPay(data.id, item.shop.id)" />
+                            <input type="checkbox" class="mint-checkbox-input" :ref="'itemPay' + data.id" @click="actPay(data.id, item.shop.id, item.product)" />
                             <span class="mint-checkbox-core"></span>
                         </label>
                         <div class="item_info">
-                            <img :src="data.img" alt="" class="item_img"/>
+                            <img :src="data.imgUrl" alt="" class="item_img"/>
                             <div class="item_data">
                                 <h3>{{ data.name }}</h3>
                                 <div class="item_num">
                                     <div class="money">￥{{ data.money }}<span>/{{ data.unit }}</span></div>
-                                    <button class="minus"><i class="iconfont icon-subtract"></i></button>
-                                    <div class="number">{{ data.num }}</div>
-                                    <button class="add" ><i class="iconfont icon-add"></i></button>  
+                                    <button class="minus" @click="changeNum(item.shop.id, data.id, data.number, 'minus')"><i class="iconfont icon-subtract"></i></button>
+                                    <div class="number">{{ data.number }}</div>
+                                    <button class="add" @click="changeNum(item.shop.id, data.id, data.number, 'add')" ><i class="iconfont icon-add"></i></button>  
                                 </div>
                             </div>
                         </div>
-                        <div class="delete"><i class="iconfont icon-icon1"></i></div>
+                        <div class="delete" @click="deleteItem(item.shop.id, data.id)"><i class="iconfont icon-icon1"></i></div>
                     </li>
                 </ul>
             </li>
@@ -81,22 +81,100 @@ export default {
         init () {
             this.getShopData(5);
         },
-        itemAllPay (key){
-            var that = this;
-            console.log(that.$refs["itemAllPay" + key][0].checked)
-        },
-        actPay (key) {
-            var that = this;
-            console.log(that.$refs[key].checked, key);
-        },
         allPay () {
             var that = this;
-            if(that.$refs.allPay.checked){
-                that.allId = true
-            }else{
-                that.allId = false
+            var start = that.$refs.allPay.checked;
+            for(var i = 0; i < that.shopData.length; i ++){
+                that.$refs["itemAllPay" + that.shopData[i].shop.id][0].checked = start;
+                that.itemPay(that.shopData[i].shop.id, that.shopData[i].product);
             }
-            
+            that.rental();
+        },
+        actItemPay(key, product){
+            var that = this;
+            that.itemPay(key, product);
+            that.detectionAllPay ();
+            that.rental();
+        },
+        itemPay (key, product){
+            var that = this;
+            var start = that.$refs["itemAllPay" + key][0].checked;
+            for(var i = 0; i < product.length; i ++){
+                that.$refs["itemPay" + product[i].id][0].checked = start;
+            }
+        },
+        actPay (item, key, product) {
+            var that = this,
+                start = true;
+            for(var i = 0; i < product.length; i ++){
+                if(that.$refs["itemPay" + product[i].id][0].checked == false){
+                    start = false;
+                    break;
+                }
+            }
+            that.$refs["itemAllPay" + key][0].checked = start;
+            that.detectionAllPay ();
+            that.rental();
+        },
+        detectionAllPay (){
+            var that = this,
+                start = true;
+            for(var i = 0; i < that.shopData.length; i ++){
+                if(that.$refs["itemAllPay" + that.shopData[i].shop.id][0].checked == false){
+                    start = false;
+                    break;
+                }
+            }
+            that.$refs.allPay.checked = start;
+        },
+        changeNum(key, id, number ,sat){
+            var that = this;
+            for(var i = 0; i < that.shopData.length; i ++){
+                if(that.shopData[i].shop.id == key){
+                    for(var j = 0; j < that.shopData[i].product.length; j ++){
+                        if(that.shopData[i].product[j].id == id){
+                            if(sat == "minus"){
+                                that.shopData[i].product[j].number = (number == 0) ? 1 : --number;
+                            }else if(sat == "add"){
+                                that.shopData[i].product[j].number = ++number;
+                            }
+                            that.rental();
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        },
+        rental(){
+            var that = this,
+                payNum = 0;
+            for(var i = 0; i < that.shopData.length; i ++){
+                for(var j = 0; j < that.shopData[i].product.length; j ++){
+                    if(that.$refs["itemPay" + that.shopData[i].product[j].id][0].checked){
+                        payNum += that.shopData[i].product[j].number * that.shopData[i].product[j].money
+                    }
+                }
+            }
+            that.payNum = payNum;
+        },
+        deleteItem(key, id){
+            var that = this;
+            for(var i = 0; i < that.shopData.length; i ++){
+                if(that.shopData[i].shop.id == key){
+                    for(var j = 0; j < that.shopData[i].product.length; j ++){
+                        if(that.shopData[i].product[j].id == id){
+                            that.shopData[i].product.splice(j, 1);
+                            if(!that.shopData[i].product.length){
+                                that.shopData.splice(i, 1);
+                            }
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            that.rental();
         }
     },
     components: { footView, headTit }

@@ -15,7 +15,7 @@
         </router-link>
         <div class="cent">
             <div class="centUl">
-                <router-link :to="{name:'person'}" class="list">
+                <router-link :to="{name:'site'}" class="list">
                     地址管理
                     <i class="iconfont icon-icon_on_the_right"></i>
                 </router-link>

@@ -294,15 +294,15 @@ export default {
 				product: [{
 					id: 5,
 					name: "汉堡",
-					img: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
-					num: 3,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					number: 3,
 					money: 15,
 					unit: "个"
 				},{
 					id: 6,
 					name: "薯条",
-					img: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
-					num: 1,
+					imgUrl: "http://img06.tooopen.com/images/20180318/tooopen_sy_236443383975.jpg",
+					number: 1,
 					money: 15,
 					unit: "包"
 				}]
@@ -314,15 +314,15 @@ export default {
 				product: [{
 					id: 7,
 					name: "大葱",
-					img: "https://bbs-fd.zol-img.com.cn/t_s1200x5000/g1/M0B/0E/05/Cg-4jlOtde-Idyg-AAIPr7LlwC4AAOpGwC2CsYAAg_H795.jpg",
-					num: 3,
+					imgUrl: "https://bbs-fd.zol-img.com.cn/t_s1200x5000/g1/M0B/0E/05/Cg-4jlOtde-Idyg-AAIPr7LlwC4AAOpGwC2CsYAAg_H795.jpg",
+					number: 3,
 					money: 15,
 					unit: "斤"
 				},{
 					id: 8,
 					name: "鸡蛋",
-					img: "https://bbs-fd.zol-img.com.cn/t_s1200x5000/g1/M0B/0E/05/Cg-4jlOtde-Idyg-AAIPr7LlwC4AAOpGwC2CsYAAg_H795.jpg",
-					num: 10,
+					imgUrl: "https://bbs-fd.zol-img.com.cn/t_s1200x5000/g1/M0B/0E/05/Cg-4jlOtde-Idyg-AAIPr7LlwC4AAOpGwC2CsYAAg_H795.jpg",
+					number: 10,
 					money: 15,
 					unit: "斤"
 				}]

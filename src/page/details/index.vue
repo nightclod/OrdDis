@@ -86,7 +86,8 @@ export default {
     },
     computed: mapState([
         'detailsData',
-        'commentData'  
+        'commentData',
+        'shopData'
     ]),
     mounted () {
         this.init();
@@ -168,21 +169,52 @@ export default {
         },
         addShop () {
             var that = this,
-                info = {};
-            if(that.detailsData.storeId && that.detailsData.list.length){
-                info.storeId = that.detailsData.storeId;
-                info.list = [];
+                info = {},
+                start = true;
+            if(that.detailsData.storeId && that.totaMoney){
+                
+                info.product = [];
                 for(var i = 0; i < that.detailsData.list.length; i ++){
                     if(that.detailsData.list[i].number > 0){
-                        info.list.push({
-                            id : that.detailsData.list[i].id,
-                            number : that.detailsData.list[i].number
-                        });
+                        info.product.push(
+                            JSON.parse(JSON.stringify(that.detailsData.list[i]))
+                        );
                     }
                 }
-                info.num = that.totaNum;
-                info.money = that.totaMoney;
-                console.log("发送请求", info);
+
+                for(var k = 0; k < that.shopData.length; k ++){
+                    if(that.shopData[k].shop.id == that.detailsData.storeId){
+                        
+                        for(var l = 0; l < info.product.length; l ++){
+                            var sk = true;
+                            for(var p = 0; p < that.shopData[k].product.length; p ++){
+                                if(that.shopData[k].product[p].id == info.product[l].id){
+                                    console.log(info.product[l].number); 
+                                    that.shopData[k].product[p].number += info.product[l].number;
+                                    sk = false;
+                                    break;
+                                }
+                            }
+                            if(sk){
+                                that.shopData[k].product.push( info.product[l] );
+                            }
+                        }
+                        start = false;
+                        break;
+                    }
+                }
+
+                info.shop = {
+                    id : that.detailsData.storeId,
+                    name : that.detailsData.name,
+                    num : that.totaNum,
+                    money : that.totaMoney
+                };
+
+                if(start){
+                    that.shopData.push( info );
+                }
+                console.log(that.shopData, that.detailsData);
             }
         }
     },
