@@ -13,5 +13,8 @@ export default {
 	},
 	['GET_SHOP_DATA'](state, data) {
 		state.shopData = data
+	},
+	['GET_SITE_DATA'](state, data) {
+		state.siteData = data
 	}
 }

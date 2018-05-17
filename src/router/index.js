@@ -10,7 +10,8 @@ import Register from '@/page/register'
 import Forget from '@/page/forget'
 import Amend from '@/page/mine/amend.vue'
 import Person from '@/page/mine/person.vue'
-import Site from '@/page/mine/site'
+import Site from '@/page/site'
+import ModifySite from '@/page/site/modifySite.vue'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
             path: '/site',
             name: 'site',
             component: Site
+        },
+        {
+            path: '/modifySite/:num',
+            name: 'modifySite',
+            component: ModifySite
         }
     ]
 })

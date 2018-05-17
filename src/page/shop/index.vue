@@ -2,45 +2,48 @@
     <div class="subject">
         <headTit tit="" link="订单管理" name="shop"></headTit>
         <ul class="cent">
-            <li class="store"  v-for="(item) in shopData">
+            <li class="store" v-for="(item) in shopData">
                 <div class="sto_head">
-                    <label class="sto_checkAll">
-                        <input type="checkbox" class="mint-checkbox-input" :ref="'itemAllPay' + item.shop.id" @click="actItemPay(item.shop.id, item.product)" />
-                        <span class="mint-checkbox-core"></span>
-                    </label>
-                     <router-link :to="{path:'/details/' + item.shop.id  }">
-                        <span>{{ item.shop.name }}</span>
+                    <div class="sto_checkAll">
+                        <div :class="item.act ? 'act check' : 'act'" @click="actItemPay(item.id, item.product)">
+                            <i class="iconfont icon-xuanzhong"></i>
+                        </div>
+                    </div>
+                     <router-link :to="{path:'/details/' + item.id  }">
+                        <span>{{ item.name }}</span>
                         <i class="iconfont icon-webicon213"></i>
                      </router-link>
                 </div>
                 <ul class="sto_ul">
                     <li class="sto_item" v-for="(data) in item.product">
-                        <label class="item_but">
-                            <input type="checkbox" class="mint-checkbox-input" :ref="'itemPay' + data.id" @click="actPay(data.id, item.shop.id, item.product)" />
-                            <span class="mint-checkbox-core"></span>
-                        </label>
+                        <div class="item_but">
+                            <div :class="data.act ? 'act check' : 'act'" @click="actPay(item.id, data.id, item.product)">
+                                <i class="iconfont icon-xuanzhong"></i>
+                            </div>
+                        </div>
                         <div class="item_info">
                             <img :src="data.imgUrl" alt="" class="item_img"/>
                             <div class="item_data">
                                 <h3>{{ data.name }}</h3>
                                 <div class="item_num">
                                     <div class="money">￥{{ data.money }}<span>/{{ data.unit }}</span></div>
-                                    <button class="minus" @click="changeNum(item.shop.id, data.id, data.number, 'minus')"><i class="iconfont icon-subtract"></i></button>
+                                    <button class="minus" @click="changeNum(item.id, data.id, data.number, 'minus')"><i class="iconfont icon-subtract"></i></button>
                                     <div class="number">{{ data.number }}</div>
-                                    <button class="add" @click="changeNum(item.shop.id, data.id, data.number, 'add')" ><i class="iconfont icon-add"></i></button>  
+                                    <button class="add" @click="changeNum(item.id, data.id, data.number, 'add')" ><i class="iconfont icon-add"></i></button>  
                                 </div>
                             </div>
                         </div>
-                        <div class="delete" @click="deleteItem(item.shop.id, data.id)"><i class="iconfont icon-icon1"></i></div>
+                        <div class="delete" @click="deleteItem(item.id, data.id)"><i class="iconfont icon-icon1"></i></div>
                     </li>
                 </ul>
             </li>
         </ul>
         <div class="summary">
-            <label class="checkAll">
+            <label class="checkAll" @click="allPay">
                 <div class="left">
-                    <input type="checkbox" class="mint-checkbox-input" ref="allPay" @click="allPay" />
-                    <span class="mint-checkbox-core"></span>
+                    <div :class="allId ? 'act check' : 'act'" @click="">
+                        <i class="iconfont icon-xuanzhong"></i>
+                    </div>
                 </div>
                 <div class="right">全选</div>
             </label>
@@ -48,7 +51,7 @@
                 <i>总额 :</i>
                 <span>￥{{payNum}}</span>
             </div>
-            <div class="payInfo" @click="">支 付</div>
+            <div class="payInfo" @click="payInfo">支 付</div>
         </div>
         <footView />
     </div>
@@ -57,6 +60,7 @@
 <script>
 import footView from "../../components/footer.vue";
 import headTit from "../../components/headtit.vue";
+import Base from "../../components/base.js";
 import { mapState, mapActions } from 'vuex';
 export default {
     name: 'home',
@@ -65,93 +69,107 @@ export default {
             value: [],
             id: 456,
             allId: false,
-            payNum: 0
+            payNum: 0,
+            start: false
         }
     },
     mounted () {
         this.init();
     },
-    computed: mapState([
-        'shopData' 
-    ]),
+    computed: {
+            ...mapState([
+                'shopData' 
+        ])
+    },
     methods:{
         ...mapActions([
             'getShopData'
         ]),
         init () {
+            if( !Base.getCookie("ordDisCooike") ){
+                this.$router.push({path:'/login'});
+            }
             this.getShopData(5);
+        },
+        loopIf (key, id, data, cb ) {
+            for(var i = 0; i < data.length; i ++){
+                if(data[i][key] == id){
+                    cb(data[i], i);
+                    break;
+                }
+            }
         },
         allPay () {
             var that = this;
-            var start = that.$refs.allPay.checked;
+            that.allId = !that.allId;
             for(var i = 0; i < that.shopData.length; i ++){
-                that.$refs["itemAllPay" + that.shopData[i].shop.id][0].checked = start;
-                that.itemPay(that.shopData[i].shop.id, that.shopData[i].product);
+                that.shopData[i].act = that.allId;
+                that.itemPay(that.shopData[i].id, that.shopData[i].product, that.allId);
             }
             that.rental();
         },
         actItemPay(key, product){
             var that = this;
-            that.itemPay(key, product);
+            that.loopIf("id", key, that.shopData, function(data){
+                data.act = !data.act;
+                that.itemPay(key, product, data.act);
+            });
+            
             that.detectionAllPay ();
             that.rental();
         },
-        itemPay (key, product){
+        itemPay (key, product, start){
             var that = this;
-            var start = that.$refs["itemAllPay" + key][0].checked;
             for(var i = 0; i < product.length; i ++){
-                that.$refs["itemPay" + product[i].id][0].checked = start;
+               product[i].act = start;
             }
         },
-        actPay (item, key, product) {
+        actPay ( key, id, product ) {
+            var that = this;
+            that.loopIf("id", id, product, function(data){
+                data.act = !data.act
+            });
+            that.listPay( key, product );
+            that.detectionAllPay ();
+            that.rental();
+        },
+        listPay ( key, product ) {
             var that = this,
                 start = true;
-            for(var i = 0; i < product.length; i ++){
-                if(that.$refs["itemPay" + product[i].id][0].checked == false){
-                    start = false;
-                    break;
-                }
-            }
-            that.$refs["itemAllPay" + key][0].checked = start;
-            that.detectionAllPay ();
-            that.rental();
+            that.loopIf("act", false, product, function(){
+                start = false;
+            });
+            that.loopIf("id", key, that.shopData, function(data){
+                data.act = start;
+            });
         },
         detectionAllPay (){
             var that = this,
                 start = true;
-            for(var i = 0; i < that.shopData.length; i ++){
-                if(that.$refs["itemAllPay" + that.shopData[i].shop.id][0].checked == false){
-                    start = false;
-                    break;
-                }
-            }
-            that.$refs.allPay.checked = start;
+            that.loopIf("act", false, that.shopData, function(){
+                start = false;
+            });
+            that.allId = start;
         },
         changeNum(key, id, number ,sat){
             var that = this;
-            for(var i = 0; i < that.shopData.length; i ++){
-                if(that.shopData[i].shop.id == key){
-                    for(var j = 0; j < that.shopData[i].product.length; j ++){
-                        if(that.shopData[i].product[j].id == id){
-                            if(sat == "minus"){
-                                that.shopData[i].product[j].number = (number == 0) ? 1 : --number;
-                            }else if(sat == "add"){
-                                that.shopData[i].product[j].number = ++number;
-                            }
-                            that.rental();
-                            break;
-                        }
+            that.loopIf("id", key, that.shopData, function(data){
+                that.loopIf("id", id, data.product,function(info){
+                    if(sat == "minus"){
+                        info.number = (number == 1) ? 1 : --number;
+                    }else if(sat == "add"){
+                        info.number = ++number;
                     }
-                    break;
-                }
-            }
+                    that.rental();
+                })
+            });
         },
         rental(){
             var that = this,
                 payNum = 0;
             for(var i = 0; i < that.shopData.length; i ++){
                 for(var j = 0; j < that.shopData[i].product.length; j ++){
-                    if(that.$refs["itemPay" + that.shopData[i].product[j].id][0].checked){
+                    if(that.shopData[i].product[j].act){
                         payNum += that.shopData[i].product[j].number * that.shopData[i].product[j].money
                     }
                 }
@@ -159,22 +177,63 @@ export default {
             that.payNum = payNum;
         },
         deleteItem(key, id){
+            //发出请求。回传成功。执行下一步
             var that = this;
-            for(var i = 0; i < that.shopData.length; i ++){
-                if(that.shopData[i].shop.id == key){
-                    for(var j = 0; j < that.shopData[i].product.length; j ++){
-                        if(that.shopData[i].product[j].id == id){
-                            that.shopData[i].product.splice(j, 1);
-                            if(!that.shopData[i].product.length){
-                                that.shopData.splice(i, 1);
-                            }
-                            break;
-                        }
+            that.loopIf("id", key, that.shopData, function(data, i){
+                that.loopIf("id", id, data.product,function(info, j){
+                    data.product.splice(j, 1);
+                    if(data.product.length){
+                        that.listPay(data.id, data.product);
+                    }else{
+                        that.shopData.splice(i, 1);
                     }
-                    break;
+                })
+            });
+            that.detectionAllPay ();
+            that.rental();
+        },
+        payInfo (){
+            var that = this;
+            var info = [];
+            for(var i = 0; i < that.shopData.length; i ++){
+                var start = false,
+                    data = [];
+                for(var j = 0; j < that.shopData[i].product.length; j ++){
+                    if(that.shopData[i].product[j].act){
+                        data.push( that.shopData[i].product[j] );
+                        that.shopData[i].product.splice(j --, 1);
+                        start = true;
+                    }
+                }
+                if(start){
+                    info.push({
+                        id: that.shopData[i].id,
+                        name: that.shopData[i].name,
+                        product: data
+                    });
+                }
+                if(!that.shopData[i].product.length){
+                    that.shopData.splice(i --, 1);
                 }
             }
-            that.rental();
+            alert("看控制台的支付信息");
+            console.log(info);
+        }
+    },
+    watch:{
+        shopData: function(value){
+            //能检测到的属性变化
+             for(let i = 0; i < value.length; i ++) {
+                if(!(value[i].act === true || value[i].act === false)){
+                    this.$set(value[i], 'act', false);
+                }
+                for(let j = 0; j < value[i].product.length; j ++) {
+                    if(!(value[i].product[j].act === true || value[i].product[j].act === false)){
+                        this.$set(value[i].product[j], 'act', false);
+                    }
+                }
+            }
+            return value;
         }
     },
     components: { footView, headTit }
@@ -203,8 +262,22 @@ export default {
                     line-height: 2.6rem;
                     border-bottom: solid 1px #eee;
                     .sto_checkAll{
-                        display: block;
                         float: left;
+                        height: 2.6rem;
+                        .act{
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 10px;
+                            border: solid 1px #ccc;
+                            margin-top: calc(1.3rem - 10px);
+                            text-align:center;
+                            line-height: 20px;
+                            color: #fff;
+                        }
+                        .check{
+                            border-color: #2196F3;
+                            background: #2196F3;
+                        }
                     }
                     a{
                         height: 2.6rem;
@@ -219,8 +292,21 @@ export default {
                         border-bottom: solid 1px #efefef;
                         .item_but{
                             height: 6rem;
-                            line-height: 6rem;
                             float: left;
+                            .act{
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 10px;
+                                border: solid 1px #ccc;
+                                margin-top: calc(3rem - 10px);
+                                text-align:center;
+                                line-height: 20px;
+                                color: #fff;
+                            }
+                            .check{
+                                border-color: #2196F3;
+                                background: #2196F3;
+                            }
                         }
                         .item_info{
                             float: left;
@@ -245,7 +331,7 @@ export default {
                                 .item_num{
                                     overflow: hidden;
                                     height: 3rem;
-                                    width: 13rem;
+                                    min-width: 13rem;
                                     .money{
                                         float: left;
                                         height: 3rem;
@@ -276,7 +362,7 @@ export default {
                                         font-size: 1.1rem;
                                         padding:0 .5rem;
                                         color: #333;
-                                        width: 3rem;
+                                        min-width: 3rem;
                                         text-align: center;
                                         line-height: 3rem;
                                     }
@@ -315,6 +401,20 @@ export default {
                     float: left;
                     width: 1.5rem;
                     height: 3rem;
+                    .act{
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        border: solid 1px #ccc;
+                        margin-top: calc(1.5rem - 10px);
+                        text-align:center;
+                        line-height: 20px;
+                        color: #fff;
+                    }
+                    .check{
+                        border-color: #2196F3;
+                        background: #2196F3;
+                    }
                 }
                 .right{
                     float: left;

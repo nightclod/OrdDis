@@ -10,7 +10,8 @@ const state = {
 	itemData: [],
 	detailsData:{},
 	commentData:[],
-	shopData: []
+	shopData: [],
+	siteData: []
 
 }
 
