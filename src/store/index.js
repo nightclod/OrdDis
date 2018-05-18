@@ -11,7 +11,8 @@ const state = {
 	detailsData:{},
 	commentData:[],
 	shopData: [],
-	siteData: []
+	siteData: [],
+	soleSiteData: {}
 
 }
 

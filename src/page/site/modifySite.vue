@@ -6,31 +6,29 @@
                 <div class="list" @click="amPhone">
                     <span>手机号</span>
                     <i class="iconfont icon-webicon213"></i>
-                    <b>{{phone}}</b>
+                    <b>{{soleSiteData.phone || ""}}</b>
                 </div>
                 <div class="list" @click="amName">
                     <span>名字</span>
                     <i class="iconfont icon-webicon213"></i>
-                    <b>{{name}}</b>
+                    <b>{{soleSiteData.name || ""}}</b>
                 </div>
-                <div class="list part" @click="sexstart = !sexstart">
+                <div class="list part" @click="sexstart = true">
                     <span>性别</span>
                     <i class="iconfont icon-webicon213"></i>
-                    <b>{{sex}}</b>
+                    <b>{{soleSiteData.sex || ""}}</b>
                 </div>
-                <div class="list" @click="handlerArea">
+                <div class="list" @click="areaVisible = true">
                     <span>省市区</span>
                     <i class="iconfont icon-webicon213"></i>
-                    <b>{{areaString}}</b>
+                    <b>{{soleSiteData.siteName || ""}}</b>
                 </div>
                 <div class="list" @click="handlerStreet">
                     <span>街道</span>
                     <i class="iconfont icon-webicon213"></i>
-                    <b>{{streetString}}</b>
+                    <b>{{soleSiteData.siteNum[3] || ""}}</b>
                 </div>
-                <textarea class="detail-site" placeholder="详细地址">
-
-                </textarea>
+                <textarea class="detail-site" placeholder="详细地址">{{soleSiteData.detail}}</textarea>
                 <mt-popup v-model="sexstart" position="bottom" style="width:100%">  
                     <mt-picker :slots="sexslots" @change="onSexChange" :visible-item-count="3" style="width:100%"></mt-picker>  
                 </mt-popup>
@@ -52,93 +50,111 @@ import data from '../../assets/data/data.json';
 import { mapState, mapActions } from 'vuex';
 import { MessageBox } from 'mint-ui';
 
-let index = 0
-let index2 = 0
-let index3 = 0
-// 初始化省
-let province = data.map(res => {
-  return res.name
-})
-// 初始化市
-let city = data[index].childs.map(res => {
-  return res.name
-})
-// 初始化区
-let area = data[index].childs[index2].childs.map(res => {
-  return res.name
-})
-// 初始化街
-let street = data[index].childs[index2].childs[index3].childs.map(res => {
-  return res.name
-})
-
 export default {
     name: 'person',
     data () {
         return {
-            name: "姓名123",
-            account: "1589888",
-            phone: "17865923008",
-            Nphone: "",
-            sex: "男",
             sexstart: false,
-            startDate : new Date("1960/1/1"),
-            birthday:  new Date("2000/1/1"),
-            endDate : new Date(),
-            birstart: false,
-            sexslots:[{values: ['男', '女']}] ,
-
             areaVisible: false,
             streetVisible: false,
             areaString: '请选择',
             streetString: '请选择',
-            slots: [{
+            
+            sexslots:[{values: ['男', '女']}],
+            slots: [],
+            slotstree: [],
+
+            index1 : 0,
+            index2 : 0,
+            index3 : 0,
+            index4 : 0,
+            province : [],
+            city: [],
+            area: [],
+            street: []
+        }
+    },
+    mounted () {
+        this.init();
+    },
+    computed: {
+        ...mapState([
+            'soleSiteData'
+        ])
+    },
+    methods:{
+        ...mapActions([
+            'getSoleSiteData'
+  		]),
+        init() { 
+            if( !Base.getCookie("ordDisCooike") ){
+                this.$router.push({path:'/login'});
+            }
+            console.log(data,"----1-----");
+            this.getSoleSiteData(this.$router.history.current.params.num);
+            
+        },
+        dataInit(){
+            var that = this;
+            let one = that.soleSiteData.siteNum[0]
+            let two = that.soleSiteData.siteNum[1]
+            let three = that.soleSiteData.siteNum[2]
+            let four = that.soleSiteData.siteNum[3]
+
+             // 初始化省
+            that.province = data.map(res => {
+                return res.name
+            });
+            // 初始化市
+            that.index1 = that.province.indexOf(one);
+            that.city = data[that.index1].childs.map(res => {
+                return res.name
+            });
+            // 初始化区
+            that.index2 = that.city.indexOf(two);
+            that.area = data[that.index1].childs[that.index2].childs.map(res => {
+                return res.name
+            });
+            // 初始化街
+            that.index3 = that.area.indexOf(three);
+            that.street = data[that.index1].childs[that.index2].childs[that.index3].childs.map(res => {
+                return res.name
+            })
+            that.slots = [{
                 flex: 1,
-                values: province,
+                values: that.province,
                 className: 'slot1',
-                textAlign: 'left'
+                textAlign: 'left',
+                defaultIndex: that.index1
             }, {
                 divider: true,
                 content: '-',
                 className: 'slot2'
             }, {
                 flex: 1,
-                values: city,
+                values: that.city,
                 className: 'slot3',
-                textAlign: 'left'
+                textAlign: 'left',
+                defaultIndex: that.index2
             }, {
                 divider: true,
                 content: '-',
                 className: 'slot4'
             }, {
                 flex: 1,
-                values: area,
+                values: that.area,
                 className: 'slot5',
-                textAlign: 'left'
-            }],
-            slotstree: [{
+                textAlign: 'left',
+                defaultIndex: that.index3
+            }];
+            that.index4 = that.street.indexOf(four);
+            that.slotstree = [{
                 flex: 1,
-                values: street,
+                values: that.street,
                 className: 'slot1',
-                textAlign: 'center'
+                textAlign: 'center',
+                defaultIndex: that.index4
             }]
-        }
-    },
-    mounted () {
-        this.init();
-    },
-    computed: mapState([
-        'detailsData',
-        'commentData',
-        'shopData'
-    ]),
-    methods:{
-        init() { 
-            if( !Base.getCookie("ordDisCooike") ){
-                this.$router.push({path:'/login'});
-            }else{
-                
-            }
         },
         amPhone() {
             var that = this;
@@ -153,8 +169,9 @@ export default {
                 },
                 inputErrorMessage:'请输入正确的手机号',
             }).then((val) => {
-                that.Nphone = val.value;
-                that.phone = val.value;
+                if(val.value){
+                    that.soleSiteData.phone = val.value;
+                }
             }, () => {  
                 
             }) 
@@ -168,70 +185,75 @@ export default {
                     if(v == null){ 
                         return true;
                     }
-                    return /^[0-9A-Za-z\u4E00-\u9FA5]{6,10}$/.test(v);
+                    return /^[0-9A-Za-z\u4E00-\u9FA5]{2,5}$/.test(v);
                 },
-                inputErrorMessage:'由6至10位的汉字、数字、字母组成',
-            }).then((val) => {  
-                that.name = val.value;
-                
+                inputErrorMessage:'由2至5位的汉字、数字、字母组成',
+            }).then((val) => {
+                if(val.value){
+                    that.soleSiteData.name = val.value;
+                }
             }, () => {
                 
             }) 
         },
-        onSexChange(picker, values) { 
-            this.sex = values[0];
+        onSexChange(picker, values) {
+            this.soleSiteData.sex = values[0];
         },
-        handlerArea() {
-      this.areaVisible = true
-    },
-    handlerStreet() {
-        if (this.slotstree[0].values.length === 0) {
-            this.streetString = '无可选街道'
-            return
-        }
-        this.streetVisible = true
-    },
-    onValuesChange(picker, values) {
-        let one = values[0]
-        let two = values[1]
-        let three = values[2]
-        index = province.indexOf(one)
-        if (index >= 0 && province.length > 0) {
-            city = data[index].childs.map(res => {
-            return res.name
-            })
-            picker.setSlotValues(1, city)
-            two = values[1]
-        }
+        handlerStreet() {
+            var that = this;
+            if (this.slotstree[0].values.length === 0) {
+                this.soleSiteData.siteNum[3] = '无可选街道'
+                return
+            }
+            that.streetVisible = true
+        },
+        onValuesChange(picker, values) {
+            if(!values.length){
+                return null;
+            }
+            var that = this;
+            let one = values[0]
+            let two = values[1]
+            let three = values[2]
+            that.index1 = that.province.indexOf(one)
+            if (that.index1 >= 0 && that.province.length > 0) {
+                that.city = data[that.index1].childs.map(res => {
+                    return res.name
+                })
+                picker.setSlotValues(1, that.city)
+                two = values[1]
+            }
 
-        index2 = city.indexOf(two)
-        if (index2 >= 0 && city.length > 0) {
-            area = data[index].childs[index2].childs.map(res => {
-            return res.name
-            })
-            picker.setSlotValues(2, area)
-            three = values[2]
-        }
-        index3 = area.indexOf(three)
-        if (index >= 0 && index2 >= 0 && index3 >= 0) {
-            street = data[index].childs[index2].childs[index3].childs.map(res => {
-            return res.name
-            })
-            this.slotstree[0].values = street
-        }
-
-        if (index2 === -1 || index3 === -1) {
-            this.streetString = '无可选街道'
-        }
-        this.areaString = values.join('-')
+            that.index2 = that.city.indexOf(two)
+            if (that.index2 >= 0 && that.city.length > 0) {
+                that.area = data[that.index1].childs[that.index2].childs.map(res => {
+                    return res.name
+                })
+                picker.setSlotValues(2, that.area)
+                three = values[2]
+            }
+            that.index3 = that.area.indexOf(three)
+            if (that.index1 >= 0 && that.index2 >= 0 && that.index3 >= 0) {
+                that.street = data[that.index1].childs[that.index2].childs[that.index3].childs.map(res => {
+                    return res.name
+                })
+                that.slotstree[0].values = that.street
+            }
+            if (that.index2 === -1 || that.index3 === -1) {
+                that.soleSiteData.siteNum[3] = '无可选街道'
+            }
+            that.soleSiteData.siteName = values.join('-')
         },
         onStreeChange(picker, values) {
-        this.streetString = values.join('-')
+            this.soleSiteData.siteNum[3] = values.join('-')
         }
-
     },
-    filters: {
-        
+    watch: {
+        soleSiteData(val){
+            console.log(val);
+            this.dataInit();
+            return val
+        }
     },
     components: { headTit }
 }

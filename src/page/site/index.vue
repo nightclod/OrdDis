@@ -36,6 +36,7 @@
                     </div>
                 </li>
             </ul>
+            <button type="button" class="add-site">添加新地址</button>
         </div>
     </div>
 </template>
@@ -186,8 +187,19 @@ export default {
                     }
                 }
             }
-
-        }
-                
+            .add-site{
+                outline: none;
+                border: none;
+                width: 90%;
+                height: 2.5rem;
+                font-size: 1.1rem;
+                margin: 0 auto;
+                display: block;
+                border-radius: 5px;
+                background: #FF5722;
+                color: #fff;
+                line-height: 2.5rem;
+            }
+        }    
     }
 </style>

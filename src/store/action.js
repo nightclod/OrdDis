@@ -393,5 +393,24 @@ export default {
 			}]
 		}
 		commit('GET_SITE_DATA', data);
+	},
+	getSoleSiteData({commit, state}, id){
+		var data = {};
+		if(id == 1){
+			data.phone = "15869105213";
+			data.name = "小华";
+			data.sex = "男";
+			data.siteNum =  ["河北省", "秦皇岛市", "山海关区","南关街道"] ;
+			data.siteName = "河北省-秦皇岛市-山海关区";
+			data.detail = "狮子头";
+		}else if(id == 2){
+			data.phone = "15869105213";
+			data.name = "小红";
+			data.sex = "女";
+			data.siteNum =  ["河北省", "秦皇岛市", "山海关区","南关街道"];
+			data.siteName = "北京市-市辖区-西城区";
+			data.detail = "狮子头";
+		}
+		commit('GET_SOLE_SITE_DATA', data);
 	}
 }

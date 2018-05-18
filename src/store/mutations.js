@@ -16,5 +16,8 @@ export default {
 	},
 	['GET_SITE_DATA'](state, data) {
 		state.siteData = data
+	},
+	['GET_SOLE_SITE_DATA'](state, data){
+		state.soleSiteData = data
 	}
 }
